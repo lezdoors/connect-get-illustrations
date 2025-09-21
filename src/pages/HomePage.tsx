@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import ProcessSteps from '../components/ProcessSteps'
+import ServiceTypes from '../components/ServiceTypes'
 import ServicesOverview from '../components/ServicesOverview'
 import TrustContact from '../components/TrustContact'
 import Footer from '../components/Footer'
@@ -12,6 +13,7 @@ const HomePage: React.FC = () => {
       <Header />
       <Hero />
       <ProcessSteps />
+      <ServiceTypes />
       <ServicesOverview />
       <TrustContact />
       <Footer />

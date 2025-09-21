@@ -1,97 +1,15 @@
 import React, { useState } from 'react'
 
-// ElectricalGridIllustration component
-const ElectricalGridIllustration: React.FC = () => (
-  <svg viewBox="0 0 400 300" className="w-full h-auto">
-    {/* Power lines and grid infrastructure */}
-    <g stroke="#2563eb" strokeWidth="2" fill="none">
-      {/* Main power lines */}
-      <line x1="50" y1="80" x2="350" y2="80" />
-      <line x1="50" y1="120" x2="350" y2="120" />
-      
-      {/* Power towers */}
-      <g>
-        <line x1="100" y1="40" x2="100" y2="140" strokeWidth="3" />
-        <line x1="90" y1="60" x2="110" y2="60" />
-        <line x1="85" y1="80" x2="115" y2="80" />
-        <line x1="90" y1="100" x2="110" y2="100" />
-      </g>
-      
-      <g>
-        <line x1="200" y1="40" x2="200" y2="140" strokeWidth="3" />
-        <line x1="190" y1="60" x2="210" y2="60" />
-        <line x1="185" y1="80" x2="215" y2="80" />
-        <line x1="190" y1="100" x2="210" y2="100" />
-      </g>
-      
-      <g>
-        <line x1="300" y1="40" x2="300" y2="140" strokeWidth="3" />
-        <line x1="290" y1="60" x2="310" y2="60" />
-        <line x1="285" y1="80" x2="315" y2="80" />
-        <line x1="290" y1="100" x2="310" y2="100" />
-      </g>
-    </g>
-
-    {/* Houses connected to grid */}
-    <g fill="#10b981" stroke="#2563eb" strokeWidth="1">
-      {/* House 1 */}
-      <rect x="60" y="180" width="40" height="30" />
-      <polygon points="80,160 60,180 100,180" fill="#2563eb" />
-      <line x1="80" y1="120" x2="80" y2="180" stroke="#10b981" strokeWidth="2" />
-      
-      {/* House 2 */}
-      <rect x="160" y="180" width="40" height="30" />
-      <polygon points="180,160 160,180 200,180" fill="#2563eb" />
-      <line x1="180" y1="120" x2="180" y2="180" stroke="#10b981" strokeWidth="2" />
-      
-      {/* House 3 */}
-      <rect x="260" y="180" width="40" height="30" />
-      <polygon points="280,160 260,180 300,180" fill="#2563eb" />
-      <line x1="280" y1="120" x2="280" y2="180" stroke="#10b981" strokeWidth="2" />
-    </g>
-
-    {/* Family figures near houses */}
-    <g fill="#10b981">
-      {/* Family 1 */}
-      <circle cx="70" cy="230" r="4" />
-      <line x1="70" y1="235" x2="70" y2="250" stroke="#10b981" strokeWidth="2" />
-      <circle cx="85" cy="230" r="4" />
-      <line x1="85" y1="235" x2="85" y2="250" stroke="#10b981" strokeWidth="2" />
-      
-      {/* Family 2 */}
-      <circle cx="170" cy="230" r="4" />
-      <line x1="170" y1="235" x2="170" y2="250" stroke="#10b981" strokeWidth="2" />
-      <circle cx="185" cy="230" r="4" />
-      <line x1="185" y1="235" x2="185" y2="250" stroke="#10b981" strokeWidth="2" />
-      
-      {/* Family 3 */}
-      <circle cx="270" cy="230" r="4" />
-      <line x1="270" y1="235" x2="270" y2="250" stroke="#10b981" strokeWidth="2" />
-      <circle cx="285" cy="230" r="4" />
-      <line x1="285" y1="235" x2="285" y2="250" stroke="#10b981" strokeWidth="2" />
-    </g>
-
-    {/* Electrical symbols */}
-    <g fill="#2563eb">
-      <circle cx="100" cy="80" r="3" />
-      <circle cx="200" cy="80" r="3" />
-      <circle cx="300" cy="80" r="3" />
-    </g>
-
-    {/* Energy flow indicators */}
-    <g stroke="#10b981" strokeWidth="1" fill="none">
-      <path d="M 120 90 Q 140 85 160 90" markerEnd="url(#arrowhead)" />
-      <path d="M 220 90 Q 240 85 260 90" markerEnd="url(#arrowhead)" />
-    </g>
-
-    {/* Arrow marker definition */}
-    <defs>
-      <marker id="arrowhead" markerWidth="10" markerHeight="7" 
-              refX="9" refY="3.5" orient="auto">
-        <polygon points="0 0, 10 3.5, 0 7" fill="#10b981" />
-      </marker>
-    </defs>
-  </svg>
+// FAQ Support Illustration
+const FAQIllustration: React.FC = () => (
+  <div className="w-full max-w-sm mx-auto">
+    <img 
+      src="/illustrations/FAQ.png" 
+      alt="Support et assistance FAQ"
+      className="w-full h-auto"
+      loading="lazy"
+    />
+  </div>
 )
 
 const TrustContact: React.FC = () => {
@@ -134,9 +52,9 @@ const TrustContact: React.FC = () => {
               Pourquoi Mon Raccordement Connect ?
             </h2>
             
-            {/* Electrical Grid Illustration */}
+            {/* FAQ Support Illustration */}
             <div className="mb-8">
-              <ElectricalGridIllustration />
+              <FAQIllustration />
             </div>
 
             {/* Trust Points */}
