@@ -7,6 +7,7 @@
 
 ## URLs
 - **Development**: https://3000-igg22nvk3qb2627qpy61t-6532622b.e2b.dev/
+- **Test Page**: https://3000-igg22nvk3qb2627qpy61t-6532622b.e2b.dev/test.html
 - **GitHub**: Ready for setup
 
 ## Data Architecture
