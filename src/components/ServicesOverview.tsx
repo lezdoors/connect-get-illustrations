@@ -42,9 +42,10 @@ const ServicesOverview: React.FC = () => {
               <div className="mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center">
                 <img 
                   src={service.image} 
-                  alt={service.title}
+                  alt={`Service ${service.title}: ${service.description}`}
                   className="w-32 h-32 object-contain"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 

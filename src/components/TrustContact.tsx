@@ -5,9 +5,10 @@ const FAQIllustration: React.FC = () => (
   <div className="w-full max-w-sm mx-auto">
     <img 
       src="/illustrations/FAQ.png" 
-      alt="Support et assistance FAQ"
+      alt="Support client et assistance technique pour raccordement électrique"
       className="w-full h-auto"
       loading="lazy"
+      decoding="async"
     />
   </div>
 )

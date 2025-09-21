@@ -1,17 +1,15 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import MiniForm from './MiniForm'
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate()
+  
   const goToForm = () => {
-    window.location.href = '/enedis-raccordement'
+    navigate('/enedis-raccordement')
   }
 
-  const scrollToContact = () => {
-    const contactSection = document.querySelector('#contact')
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+
 
   return (
     <section className="bg-white py-12 px-4 sm:px-6 lg:px-8">
@@ -19,8 +17,8 @@ const Hero: React.FC = () => {
         {/* 3-COLUMN HERO LAYOUT FOR MAXIMUM CONVERSION */}
         <div className="grid lg:grid-cols-12 gap-8 items-center mb-16">
           
-          {/* LEFT ILLUSTRATION - Electric Pole */}
-          <div className="lg:col-span-3 flex justify-center">
+          {/* LEFT ILLUSTRATION - Electric Pole (Hidden on mobile) */}
+          <div className="lg:col-span-3 hidden lg:flex justify-center">
             <div className="w-full max-w-xs">
               <img 
                 src="/illustrations/a-left-hero.png" 
@@ -34,11 +32,11 @@ const Hero: React.FC = () => {
           {/* CENTER - CONVERSION-FOCUSED CONTENT */}
           <div className="lg:col-span-6 text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
-              Raccordement Électrique Enedis Simplifié
+              Raccordement Électrique Enedis – Simple & Rapide
             </h1>
             
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              En seulement 3 étapes simples, particuliers et professionnels peuvent déposer leur demande de raccordement.
+              Devis gratuit en 24h • Experts agréés ENEDIS • Suivi personnalisé A→Z
             </p>
 
             {/* MAIN CTA BUTTON - CONVERSION OPTIMIZED */}
@@ -69,17 +67,26 @@ const Hero: React.FC = () => {
 
             {/* SECONDARY CTA */}
             <div className="mt-6">
-              <button 
-                onClick={scrollToContact}
+              <a 
+                href="tel:0912345678"
                 className="text-blue-600 hover:text-blue-700 font-medium underline decoration-2 underline-offset-4"
+                onClick={() => {
+                  // Track phone clicks for analytics
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'tel_click', {
+                      event_category: 'engagement',
+                      event_label: 'hero_phone_cta'
+                    })
+                  }
+                }}
               >
                 Ou nous contacter directement
-              </button>
+              </a>
             </div>
           </div>
 
           {/* RIGHT ILLUSTRATION - House with Solar & Car */}
-          <div className="lg:col-span-3 flex justify-center">
+          <div className="lg:col-span-3 flex justify-center sm:mt-0 mt-6">
             <div className="w-full max-w-xs">
               <img 
                 src="/illustrations/a-right-hero.png" 

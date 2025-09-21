@@ -46,9 +46,10 @@ const ProcessSteps: React.FC = () => {
               <div className="mb-6 flex justify-center">
                 <img 
                   src={step.image} 
-                  alt={step.title}
+                  alt={`Étape ${step.number}: ${step.title}`}
                   className="w-24 h-24 object-contain"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 
