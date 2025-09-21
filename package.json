@@ -4,7 +4,14 @@
   "version": "1.0.0",
   "type": "module",
   "description": "MonElec.net - High-converting electrical connection service website for the French market",
-  "keywords": ["react", "typescript", "tailwind", "electrical", "france", "landing-page"],
+  "keywords": [
+    "react",
+    "typescript",
+    "tailwind",
+    "electrical",
+    "france",
+    "landing-page"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -27,7 +34,6 @@
     "@headlessui/react": "^2.2.8",
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/postcss": "^4.1.13",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@vitejs/plugin-react": "^5.0.2",
@@ -37,7 +43,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.4.0",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.13",
+    "tailwindcss": "^3.4.17",
     "terser": "^5.44.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.43.0",
