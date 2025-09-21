@@ -61,8 +61,8 @@ const Footer: React.FC = () => {
             </div>
 
             <p className="text-sm text-gray-400 mb-6 leading-relaxed">
-              Experts en raccordement électrique depuis 2009. Plus de 15,000 installations réalisées partout en France 
-              avec la garantie d'un service rapide, transparent et conforme aux normes CONSUEL.
+              Service expert en raccordement électrique. Interventions partout en France 
+              avec la garantie d'un service conforme aux normes ENEDIS et CONSUEL.
             </p>
 
             {/* Certifications */}
@@ -78,7 +78,7 @@ const Footer: React.FC = () => {
               <div className="flex items-center space-x-3">
                 <PhoneIcon className="w-5 h-5 text-primary-400" />
                 <div>
-                  <div className="text-white font-medium">01 23 45 67 89</div>
+                  <div className="text-white font-medium">09 XX XX XX XX</div>
                   <div className="text-xs text-gray-400">Appel gratuit</div>
                 </div>
               </div>
@@ -213,7 +213,7 @@ const Footer: React.FC = () => {
             {/* Copyright */}
             <div className="text-sm text-gray-400">
               © {currentYear} MonElec.net - Tous droits réservés. 
-              <span className="ml-2">SIRET : 123 456 789 00012</span>
+              <span className="ml-2">Service de raccordement électrique</span>
             </div>
 
             {/* Legal Links */}
