@@ -1,13 +1,20 @@
 {
-  "name": "webapp",
+  "name": "monelec-webapp",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "MonElec.net - High-converting electrical connection service website for the French market",
+  "keywords": ["react", "typescript", "tailwind", "electrical", "france", "landing-page"],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:vercel": "npm run build && vercel --prod",
+    "deploy:netlify": "npm run build && netlify deploy --prod --dir dist",
+    "start": "npm run preview",
+    "clean": "rm -rf dist node_modules/.vite",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "cors": "^2.8.5",
