@@ -9,16 +9,13 @@ import {
 
 const CTA: React.FC = () => {
   const [activeUsers, setActiveUsers] = useState(12)
-  const [availableSlots, setAvailableSlots] = useState(3)
+
 
   // Simulate live data updates
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveUsers(prev => Math.max(8, Math.min(18, prev + (Math.random() > 0.5 ? 1 : -1))))
-      // Occasionally update available slots
-      if (Math.random() > 0.9) {
-        setAvailableSlots(prev => Math.max(1, Math.min(7, prev + (Math.random() > 0.5 ? 1 : -1))))
-      }
+
     }, 5000)
 
     return () => clearInterval(interval)
