@@ -4,7 +4,7 @@ const ProcessSteps: React.FC = () => {
   const steps = [
     {
       number: 1,
-      image: '/illustrations/Définir-le-type.png',
+      image: '/illustrations/definir-le-type.png',
       title: 'Définir le type raccordement Enedis correspondant à votre besoin',
       description: 'Bénéficiez de notre outil pour définir la demande de raccordement qui correspond à votre besoin. C\'est facile et rapide.'
     },
