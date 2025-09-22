@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonElec.net - Test Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .text-primary { color: #1e40af; }
+        .bg-primary { background-color: #1e40af; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8 text-center">
+            <div class="w-16 h-16 mx-auto mb-4 bg-primary rounded-full flex items-center justify-center">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+            </div>
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">MonElec.net</h1>
+            <p class="text-gray-600 mb-6">Raccordement électrique simplifié</p>
+            <div class="text-left space-y-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="text-sm">Service ready ✅</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="text-sm">React components loading ✅</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span class="text-sm">Tailwind CSS working ✅</span>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-gray-200">
+                <button onclick="window.location.href='/'" class="bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-800 transition-colors">
+                    Voir la page principale
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
