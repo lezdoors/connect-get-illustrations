@@ -1,14 +1,22 @@
-# MonElec.net
+# Raccordement Connect - Google 2025 Compliant Landing Page
 
 ## Project Overview
-- **Name**: MonElec.net
-- **Goal**: High-converting electrical connection service website for the French market (€120K/month business)
-- **Features**: Professional landing page with modern, friendly UX combining mon-raccordement-electricite.fr's conversion strategy with Lemonade.com's approach
+- **Name**: Raccordement Connect (formerly MonElec.net)
+- **Domain**: raccordement-connect.com
+- **Goal**: Google Ads compliant landing page for ENEDIS electrical connection services
+- **Compliance**: Fully updated to meet Google's February 2025 landing page requirements
+- **Status**: **REBRANDED & OPTIMIZED** - Ready for live traffic
 
 ## URLs
-- **Development**: https://3000-igg22nvk3qb2627qpy61t-6532622b.e2b.dev/
-- **Test Page**: https://3000-igg22nvk3qb2627qpy61t-6532622b.e2b.dev/test.html
-- **GitHub**: Ready for setup
+- **Development**: https://3000-igg22nvk3qb2627qpy61t-6532622b.e2b.dev
+- **Production Domain**: raccordement-connect.com (ready for deployment)
+- **Form Page**: https://3000-igg22nvk3qb2627qpy61t-6532622b.e2b.dev/enedis-raccordement
+- **Legacy Redirect**: /tarifs → **302 redirect** → /enedis-raccordement
+
+## New Contact Information
+- **Phone**: 09 70 70 95 70 (tel:0970709570)
+- **Email**: serviceclient@raccordement-connect.com
+- **Brand**: Raccordement Connect
 
 ## Data Architecture
 - **Data Models**: Landing page focused (multi-step form to be implemented)
@@ -42,8 +50,8 @@
 - `#process` - Process explanation section
 - `#pricing` - Pricing plans section  
 - `#testimonials` - Customer testimonials section
-- Phone: `01 23 45 67 89` (displayed throughout)
-- Email: `contact@monelec.net` (in footer)
+- Phone: `09 70 70 95 70` (displayed throughout)
+- Email: `serviceclient@raccordement-connect.com` (in footer)
 
 ## Features Not Yet Implemented ❌
 - [ ] Multi-step form for electrical connection requests
@@ -54,7 +62,7 @@
 - [ ] User dashboard for request status
 - [ ] GDPR compliance forms
 - [ ] Google Analytics 4 integration
-- [ ] SEO optimization (meta tags, structured data)
+- [✓] SEO optimization (meta tags, structured data)
 
 ## Next Development Steps
 1. **Priority 1**: Implement 5-step conversion form
@@ -79,7 +87,7 @@
 - **Status**: ✅ Active Development Server
 - **Build**: Successful with Tailwind CSS
 - **Performance**: Optimized for production
-- **Last Updated**: 2025-09-20
+- **Last Updated**: 2025-09-22
 
 ## Development Commands
 ```bash

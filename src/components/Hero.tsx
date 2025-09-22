@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
           {/* CENTER - CONVERSION-FOCUSED CONTENT */}
           <div className="lg:col-span-6 text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
-              Raccordement Électrique Enedis – Simple & Rapide
+              {SITE.tagline}
             </h1>
             
             <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
             {/* SECONDARY CTA */}
             <div className="mt-6">
               <a 
-                href="tel:0912345678"
+                href={SITE.phoneLink}
                 className="text-blue-600 hover:text-blue-700 font-medium underline decoration-2 underline-offset-4"
                 onClick={() => {
                   // Track phone clicks for analytics

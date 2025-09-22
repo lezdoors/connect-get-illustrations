@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Bars3Icon, XMarkIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import { SITE } from '../config/site'
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -24,7 +25,7 @@ const Header: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-primary-600">MonElec.net</h1>
+                <h1 className="text-2xl font-bold text-primary-600">{SITE.name}</h1>
                 <p className="text-xs text-gray-600">Raccordement électrique simplifié</p>
               </div>
             </div>
@@ -46,11 +47,11 @@ const Header: React.FC = () => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
             <a
-              href="tel:+33123456789"
+              href={SITE.phoneLink}
               className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-medium"
             >
               <PhoneIcon className="w-5 h-5" />
-              <span>01 23 45 67 89</span>
+              <span>{SITE.phoneDisplay}</span>
             </a>
             <button className="btn-primary">
               Commencer ma demande
@@ -89,11 +90,11 @@ const Header: React.FC = () => {
               ))}
               <div className="pt-4 border-t border-gray-100 space-y-3">
                 <a
-                  href="tel:+33123456789"
+                  href={SITE.phoneLink}
                   className="flex items-center space-x-2 text-primary-600 font-medium"
                 >
                   <PhoneIcon className="w-5 h-5" />
-                  <span>01 23 45 67 89</span>
+                  <span>{SITE.phoneDisplay}</span>
                 </a>
                 <button className="btn-primary w-full">
                   Commencer ma demande

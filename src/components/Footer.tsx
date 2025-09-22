@@ -6,6 +6,7 @@ import {
   ClockIcon,
   GlobeAltIcon
 } from '@heroicons/react/24/outline'
+import { SITE } from '../config/site'
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear()
@@ -55,8 +56,8 @@ const Footer: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">MonElec.net</h3>
-                <p className="text-xs text-gray-400">Raccordement électrique simplifié</p>
+                <h3 className="text-xl font-bold text-white">{SITE.name}</h3>
+                <p className="text-xs text-gray-400">{SITE.description}</p>
               </div>
             </div>
 
@@ -78,14 +79,14 @@ const Footer: React.FC = () => {
               <div className="flex items-center space-x-3">
                 <PhoneIcon className="w-5 h-5 text-primary-400" />
                 <div>
-                  <div className="text-white font-medium">09 XX XX XX XX</div>
+                  <div className="text-white font-medium">{SITE.phoneDisplay}</div>
                   <div className="text-xs text-gray-400">Appel gratuit</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <EnvelopeIcon className="w-5 h-5 text-primary-400" />
                 <div>
-                  <div className="text-white">contact@monelec.net</div>
+                  <div className="text-white">{SITE.email}</div>
                   <div className="text-xs text-gray-400">Réponse sous 2h</div>
                 </div>
               </div>
@@ -212,7 +213,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             {/* Copyright */}
             <div className="text-sm text-gray-400">
-              © {currentYear} MonElec.net - Tous droits réservés. 
+              © {currentYear} {SITE.name} - Tous droits réservés. 
               <span className="ml-2">Service de raccordement électrique</span>
             </div>
 
@@ -233,7 +234,7 @@ const Footer: React.FC = () => {
           {/* Additional Info */}
           <div className="mt-4 pt-4 border-t border-gray-800 text-center">
             <p className="text-xs text-gray-500">
-              MonElec.net est un service de raccordement électrique agréé ENEDIS. 
+              {SITE.name} est un service de raccordement électrique agréé ENEDIS. 
               Nous intervenons sur tout le territoire français en partenariat avec des électriciens certifiés CONSUEL. 
               Prix TTC, frais de déplacement inclus selon zone géographique.
             </p>
