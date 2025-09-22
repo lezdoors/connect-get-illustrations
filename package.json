@@ -1,9 +1,9 @@
 {
-  "name": "monelec-webapp",
+  "name": "raccordement-connect-webapp",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "MonElec.net - High-converting electrical connection service website for the French market",
+  "description": "Raccordement Connect - High-converting electrical connection service website for the French market",
   "keywords": [
     "react",
     "typescript",
@@ -21,6 +21,7 @@
     "dev:server": "npm run build && node server.js",
     "deploy:vercel": "npm run build && vercel --prod",
     "deploy:netlify": "npm run build && netlify deploy --prod --dir dist",
+    "deploy:pages": "npm run build && gh-pages -d dist",
     "clean": "rm -rf dist node_modules/.vite",
     "type-check": "tsc --noEmit"
   },
