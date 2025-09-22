@@ -23,17 +23,17 @@ const Hero: React.FC = () => {
       <div className="relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* HERO HEADLINES - OPTIMIZED SPACING */}
-        <div className="text-center mb-8 lg:mb-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
-            Le raccordement Enedis.<br />Simple et rapide !
+        {/* MOBILE-OPTIMIZED HEADLINES */}
+        <div className="text-center mb-6 md:mb-8 lg:mb-10 px-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-3 md:mb-4">
+            Le raccordement Enedis.<br className="hidden sm:block" /><span className="sm:hidden"> </span>Simple et rapide !
           </h1>
           
-          <h2 className="text-xl md:text-2xl text-gray-600 mb-6 font-medium">
+          <h2 className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-4 md:mb-6 font-medium px-2">
             Partenaire n°1 en France pour les demandes de raccordements Enedis
           </h2>
           
-          <p className="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 mb-4 md:mb-6 max-w-3xl mx-auto px-2">
             Estimation rapide et gratuite • Experts certifiés • Accompagnement personnalisé
           </p>
         </div>
@@ -96,27 +96,27 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* MOBILE ILLUSTRATIONS - Single column, prominently centered */}
-          <div className="md:hidden col-span-full mt-6 space-y-4">
+          {/* MOBILE ILLUSTRATIONS - Better spacing and proportions */}
+          <div className="md:hidden col-span-full mt-4 space-y-3 px-4">
             <div className="flex justify-center">
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-xs">
                 <img
                   src="/illustrations/a-left-hero.png"
                   alt="Infrastructure électrique"
-                  className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto scale-110 transform hover:scale-115 transition-transform duration-300"
                   loading="lazy"
-                  style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.06))' }}
+                  style={{ filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.08))' }}
                 />
               </div>
             </div>
             <div className="flex justify-center">
-              <div className="w-full max-w-sm">
+              <div className="w-full max-w-xs">
                 <img
                   src="/illustrations/a-right-hero.png"
                   alt="Maison avec panneaux solaires"
-                  className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
+                  className="w-full h-auto scale-110 transform hover:scale-115 transition-transform duration-300"
                   loading="lazy"
-                  style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.06))' }}
+                  style={{ filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.08))' }}
                 />
               </div>
             </div>

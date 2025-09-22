@@ -105,7 +105,7 @@ const MiniForm: React.FC = () => {
                      Object.keys(errors).length === 0
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 lg:p-7 transform hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] relative z-10"
+    <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-4 sm:p-6 lg:p-7 transform hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] relative z-10 mx-2 sm:mx-0"
          style={{ 
            boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.8)',
            backdropFilter: 'blur(8px)'
@@ -165,8 +165,8 @@ const MiniForm: React.FC = () => {
             required
             value={formData.type_raccordement}
             onChange={handleInputChange}
-            className="w-full px-4 py-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-emerald-100 focus:border-emerald-500 bg-white appearance-none hover:border-gray-400 transition-all duration-200 shadow-sm"
-            style={{ minHeight: '50px' }}
+            className="w-full px-4 py-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-emerald-100 focus:border-emerald-500 bg-white appearance-none hover:border-gray-400 transition-all duration-200 shadow-sm touch-manipulation"
+            style={{ minHeight: '52px' }}
           >
             <option value="">Sélectionnez le type</option>
             {TYPE_RACCORDEMENT_OPTIONS.map(option => (
@@ -199,7 +199,7 @@ const MiniForm: React.FC = () => {
             value={formData.code_postal}
             onChange={handleInputChange}
             className="w-full px-4 py-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-emerald-100 focus:border-emerald-500 hover:border-gray-400 transition-all duration-200 shadow-sm"
-            style={{ minHeight: '50px' }}
+            style={{ minHeight: '52px' }}
             placeholder="75001"
             inputMode="numeric"
           />
@@ -226,7 +226,7 @@ const MiniForm: React.FC = () => {
             value={formData.telephone}
             onChange={handleInputChange}
             className="w-full px-4 py-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-emerald-100 focus:border-emerald-500 hover:border-gray-400 transition-all duration-200 shadow-sm"
-            style={{ minHeight: '50px' }}
+            style={{ minHeight: '52px' }}
             placeholder="06 12 34 56 78"
             inputMode="tel"
           />
@@ -249,7 +249,7 @@ const MiniForm: React.FC = () => {
               ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-700 focus:outline-none focus:ring-4 focus:ring-emerald-200 transform hover:scale-[1.03] hover:shadow-xl active:scale-[0.98]'
               : 'bg-gray-300 text-gray-500 cursor-not-allowed'
           }`}
-          style={{ minHeight: '56px' }}
+          style={{ minHeight: '52px' }}
           aria-label="Continuer vers l'étape suivante"
         >
           {/* Button shine effect */}
