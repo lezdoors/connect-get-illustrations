@@ -87,22 +87,6 @@ export const validateStep1 = (data: Partial<Step1Data>): FormErrors => {
     errors.telephone = 'Merci d\'entrer un numéro de téléphone français valide.'
   }
 
-  if (!data.nom) {
-    errors.nom = 'Le nom est obligatoire.'
-  } else if (!validateName(data.nom)) {
-    errors.nom = 'Le nom doit contenir entre 2 et 60 caractères (lettres, apostrophes et tirets uniquement).'
-  }
-
-  if (!data.prenom) {
-    errors.prenom = 'Le prénom est obligatoire.'
-  } else if (!validateName(data.prenom)) {
-    errors.prenom = 'Le prénom doit contenir entre 2 et 60 caractères (lettres, apostrophes et tirets uniquement).'
-  }
-
-  if (data.email && !validateEmail(data.email)) {
-    errors.email = 'Merci d\'entrer une adresse email valide.'
-  }
-
   return errors
 }
 
@@ -153,6 +137,24 @@ export const validateStep2 = (data: Partial<Step2Data>): FormErrors => {
 export const validateStep3 = (data: Partial<Step3Data>): FormErrors => {
   const errors: FormErrors = {}
 
+  // Personal details validation (now in Step 3)
+  if (!data.nom) {
+    errors.nom = 'Le nom est obligatoire.'
+  } else if (!validateName(data.nom)) {
+    errors.nom = 'Le nom doit contenir entre 2 et 60 caractères (lettres, apostrophes et tirets uniquement).'
+  }
+
+  if (!data.prenom) {
+    errors.prenom = 'Le prénom est obligatoire.'
+  } else if (!validateName(data.prenom)) {
+    errors.prenom = 'Le prénom doit contenir entre 2 et 60 caractères (lettres, apostrophes et tirets uniquement).'
+  }
+
+  if (data.email && !validateEmail(data.email)) {
+    errors.email = 'Merci d\'entrer une adresse email valide.'
+  }
+
+  // Technical details validation
   if (!data.puissance_demandee) {
     errors.puissance_demandee = 'Merci de sélectionner une puissance demandée.'
   }

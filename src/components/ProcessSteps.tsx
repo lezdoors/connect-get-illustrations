@@ -4,7 +4,7 @@ const ProcessSteps: React.FC = () => {
   const steps = [
     {
       number: 1,
-      image: '/illustrations/Définir le type.png',
+      image: '/illustrations/Définir-le-type.png',
       title: 'Définir le type raccordement Enedis correspondant à votre besoin',
       description: 'Bénéficiez de notre outil pour définir la demande de raccordement qui correspond à votre besoin. C\'est facile et rapide.'
     },
@@ -46,10 +46,12 @@ const ProcessSteps: React.FC = () => {
               <div className="mb-6 flex justify-center">
                 <img 
                   src={step.image} 
-                  alt={`Étape ${step.number}: ${step.title}`}
-                  className="w-24 h-24 object-contain"
+                  alt={`Étape ${step.number}`}
+                  className="w-20 h-20 md:w-24 md:h-24 object-contain"
                   loading="lazy"
                   decoding="async"
+                  width="96"
+                  height="96"
                 />
               </div>
 

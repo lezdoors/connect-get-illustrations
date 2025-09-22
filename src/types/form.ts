@@ -13,10 +13,6 @@ export interface Step1Data {
   type_raccordement: string
   code_postal: string
   telephone: string
-  nom: string
-  prenom: string
-  email?: string
-  vous_etes?: 'particulier' | 'professionnel'
 }
 
 export interface Step2Data {
@@ -32,6 +28,10 @@ export interface Step2Data {
 }
 
 export interface Step3Data {
+  nom: string
+  prenom: string
+  email?: string
+  vous_etes?: 'particulier' | 'professionnel'
   puissance_demandee: string
   type_phase: 'monophase' | 'triphase'
   distance_reseau?: number
