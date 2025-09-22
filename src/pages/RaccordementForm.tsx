@@ -80,7 +80,7 @@ const RaccordementForm: React.FC = () => {
   useEffect(() => {
     // Check if coming from mini form with prefilled data
     const prefillParam = searchParams.get('prefill')
-    const stepParam = searchParams.get('step') || window.location.hash.replace('#step=', '')
+    const stepParam = searchParams.get('step')
     
     if (prefillParam) {
       const prefillData = decodeBase64URL(prefillParam)

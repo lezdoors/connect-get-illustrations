@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { TYPE_RACCORDEMENT_OPTIONS } from '../types/form'
 import { formatPhone } from '../utils/validation'
 import { getMergedUTMParams, encodeBase64URL, storeUTMParams } from '../utils/utm'
 
 const MiniForm: React.FC = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     type_raccordement: '',
     code_postal: '',
@@ -85,9 +87,9 @@ const MiniForm: React.FC = () => {
       
       sessionStorage.setItem('raccordement_form_data', JSON.stringify(prefillData))
       
-      // Redirect to main form step 2 with prefilled data
+      // Use React Router navigation for Vercel compatibility
       const prefillParam = encodeBase64URL(prefillData)
-      window.location.href = `/enedis-raccordement?prefill=${prefillParam}#step=2`
+      navigate(`/enedis-raccordement?prefill=${prefillParam}&step=2`)
       
     } catch (error) {
       console.error('Error submitting mini form:', error)
