@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import MiniForm from './MiniForm'
+import { SITE } from '../config/site'
 
 const Hero: React.FC = () => {
   const navigate = useNavigate()
