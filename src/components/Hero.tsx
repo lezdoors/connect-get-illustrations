@@ -1,14 +1,8 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import MiniForm from './MiniForm'
 import { SITE } from '../config/site'
 
 const Hero: React.FC = () => {
-  const navigate = useNavigate()
-  
-  const goToForm = () => {
-    navigate('/enedis-raccordement')
-  }
 
   return (
     <section className="bg-white py-16 lg:py-24">

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { TYPE_RACCORDEMENT_OPTIONS } from '../types/form'
-import { validateStep1, hasErrors } from '../utils/validation'
 import { formatPhone } from '../utils/validation'
 import { getMergedUTMParams, encodeBase64URL, storeUTMParams } from '../utils/utm'
 
