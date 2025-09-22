@@ -4,11 +4,11 @@ import { SITE } from '../config/site'
 
 const Hero: React.FC = () => {
   return (
-    <section className="bg-gradient-to-br from-blue-50 via-white to-green-50 py-16 px-4 sm:px-6 lg:px-8">
+    <section className="hero-container bg-gradient-to-br from-blue-50 via-white to-green-50 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* NEW CENTERED HERO LAYOUT WITH FORM */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+          <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
             {SITE.tagline}
           </h1>
           
@@ -28,6 +28,7 @@ const Hero: React.FC = () => {
                 alt="Maison connectée avec panneaux solaires" 
                 className="w-full h-full object-contain drop-shadow-lg"
                 loading="eager"
+                fetchPriority="high"
                 width="192"
                 height="128"
               />
@@ -42,6 +43,7 @@ const Hero: React.FC = () => {
                 alt="Infrastructure électrique ENEDIS" 
                 className="w-full h-auto drop-shadow-lg"
                 loading="eager"
+                fetchPriority="high"
                 width="300"
                 height="400"
               />
@@ -63,6 +65,7 @@ const Hero: React.FC = () => {
                 alt="Maison connectée avec panneaux solaires et véhicule électrique" 
                 className="w-full h-auto drop-shadow-lg"
                 loading="eager"
+                fetchPriority="high"
                 width="300"
                 height="400"
               />

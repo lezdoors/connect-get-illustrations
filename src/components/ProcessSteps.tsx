@@ -59,6 +59,7 @@ const ProcessSteps: React.FC = () => {
                         alt={`Étape ${step.number}: ${step.title}`}
                         className="w-28 h-28 object-contain drop-shadow-lg transition-opacity duration-300"
                         loading={index === 0 ? "eager" : "lazy"}
+                        fetchPriority={index === 0 ? "high" : "low"}
                         decoding="async"
                         width="112"
                         height="112"

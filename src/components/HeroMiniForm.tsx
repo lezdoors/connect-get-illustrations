@@ -109,7 +109,7 @@ const HeroMiniForm: React.FC = () => {
                      Object.keys(errors).length === 0
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+    <div className="hero-form bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
       {/* Form Header */}
       <div className="mb-6 text-center">
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
@@ -199,7 +199,7 @@ const HeroMiniForm: React.FC = () => {
         <button
           type="submit"
           disabled={!isFormValid || isSubmitting}
-          className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-200 transform hover:scale-105 min-h-[48px] touch-manipulation ${
+          className={`cta-button w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-200 transform hover:scale-105 min-h-[48px] touch-manipulation ${
             isFormValid && !isSubmitting
               ? 'bg-green-600 text-white hover:bg-green-700 shadow-lg active:bg-green-800'
               : 'bg-gray-300 text-gray-500 cursor-not-allowed'
