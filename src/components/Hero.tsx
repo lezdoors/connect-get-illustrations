@@ -38,60 +38,60 @@ const Hero: React.FC = () => {
           </p>
         </div>
 
-        {/* MAIN LAYOUT: CLOSER ILLUSTRATIONS → ENHANCED FORM → CLOSER ILLUSTRATIONS */}
-        <div className="grid lg:grid-cols-10 gap-4 lg:gap-6 items-center">
+        {/* MAIN LAYOUT: LARGER ILLUSTRATIONS → COMPACT FORM → LARGER ILLUSTRATIONS */}
+        <div className="grid lg:grid-cols-10 gap-2 lg:gap-4 items-center">
           
-          {/* LEFT ILLUSTRATION - Closer positioning, larger scale */}
-          <div className="lg:col-span-2 hidden lg:flex justify-end">
+          {/* LEFT ILLUSTRATION - Much larger scale for better presence */}
+          <div className="lg:col-span-3 hidden lg:flex justify-center">
             <div className="w-full max-w-none transform hover:scale-105 transition-transform duration-300 ease-out">
               <img 
                 src="/illustrations/a-left-hero.png" 
                 alt="Infrastructure électrique ENEDIS" 
-                className="w-full h-auto scale-125 hover:brightness-110 transition-all duration-300"
+                className="w-full h-auto scale-[1.6] hover:brightness-110 transition-all duration-300"
                 loading="eager"
-                style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.06))' }}
+                style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.08))' }}
               />
             </div>
           </div>
 
-          {/* CENTER - ENHANCED MINI FORM */}
-          <div className="lg:col-span-6">
-            <div className="max-w-2xl mx-auto">
+          {/* CENTER - COMPACT ELEGANT FORM */}
+          <div className="lg:col-span-4">
+            <div className="max-w-lg mx-auto">
               <MiniForm />
             </div>
           </div>
 
-          {/* RIGHT ILLUSTRATION - Closer positioning, larger scale */}
-          <div className="lg:col-span-2 hidden lg:flex justify-start">
+          {/* RIGHT ILLUSTRATION - Much larger scale for better presence */}
+          <div className="lg:col-span-3 hidden lg:flex justify-center">
             <div className="w-full max-w-none transform hover:scale-105 transition-transform duration-300 ease-out">
               <img 
                 src="/illustrations/a-right-hero.png" 
                 alt="Maison connectée avec panneaux solaires" 
-                className="w-full h-auto scale-125 hover:brightness-110 transition-all duration-300"
+                className="w-full h-auto scale-[1.6] hover:brightness-110 transition-all duration-300"
                 loading="eager"
-                style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.06))' }}
+                style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.08))' }}
               />
             </div>
           </div>
 
-          {/* TABLET LAYOUT - Illustrations above form */}
-          <div className="hidden md:flex lg:hidden col-span-full mb-8 justify-center gap-8">
-            <div className="flex-1 max-w-xs">
+          {/* TABLET LAYOUT - Larger illustrations above form */}
+          <div className="hidden md:flex lg:hidden col-span-full mb-8 justify-center gap-12">
+            <div className="flex-1 max-w-sm">
               <img
                 src="/illustrations/a-left-hero.png"
                 alt="Infrastructure électrique"
-                className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto scale-125 transform hover:scale-[1.35] transition-transform duration-300"
                 loading="lazy"
-                style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.06))' }}
+                style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.08))' }}
               />
             </div>
-            <div className="flex-1 max-w-xs">
+            <div className="flex-1 max-w-sm">
               <img
                 src="/illustrations/a-right-hero.png"
                 alt="Maison avec panneaux solaires"
-                className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto scale-125 transform hover:scale-[1.35] transition-transform duration-300"
                 loading="lazy"
-                style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.06))' }}
+                style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.08))' }}
               />
             </div>
           </div>

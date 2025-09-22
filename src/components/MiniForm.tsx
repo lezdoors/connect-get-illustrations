@@ -103,14 +103,14 @@ const MiniForm: React.FC = () => {
                      Object.keys(errors).length === 0
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-8 lg:p-10 transform hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] relative z-10"
+    <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 lg:p-7 transform hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] relative z-10"
          style={{ 
-           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.8)',
+           boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.8)',
            backdropFilter: 'blur(8px)'
          }}>
       
       {/* ENHANCED PROGRESS INDICATOR */}
-      <div className="mb-8">
+      <div className="mb-6">
         <div className="flex items-center justify-between mb-4">
           <span className="text-sm font-semibold text-blue-700 bg-blue-50 px-3 py-1 rounded-full">Étape 1 sur 4</span>
           <span className="text-sm font-medium text-emerald-600 flex items-center space-x-1">
@@ -141,7 +141,7 @@ const MiniForm: React.FC = () => {
       </div>
 
       {/* FORM HEADER */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-6">
         <h3 className="text-2xl font-bold text-gray-900 mb-2">
           Commencez votre demande
         </h3>
@@ -150,7 +150,7 @@ const MiniForm: React.FC = () => {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-5">
         
         {/* Type de raccordement */}
         <div className="group">
@@ -281,7 +281,7 @@ const MiniForm: React.FC = () => {
       </form>
 
       {/* ENHANCED SECURITY NOTE */}
-      <div className="mt-8 text-center">
+      <div className="mt-6 text-center">
         <div className="flex items-center justify-center space-x-2 px-4 py-2 bg-gray-50 rounded-full border border-gray-200">
           <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
             <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
