@@ -107,50 +107,48 @@ const MiniForm: React.FC = () => {
   return (
     <div className="p-0">
       
-      {/* ENHANCED PROGRESS INDICATOR */}
-      <div className="mb-6">
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-sm font-semibold text-blue-700 bg-blue-50 px-3 py-1 rounded-full">Étape 1 sur 4</span>
-          <span className="text-sm font-medium text-emerald-600 flex items-center space-x-1">
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
-            </svg>
-            <span>2 minutes</span>
+      {/* CLEAN PROGRESS */}
+      <div className="mb-8">
+        <div className="flex justify-between items-center mb-4">
+          <span 
+            className="text-sm font-medium"
+            style={{ color: '#6b7280' }}
+          >
+            Étape 1 sur 4
+          </span>
+          <span 
+            className="text-sm"
+            style={{ color: '#9ca3af' }}
+          >
+            2 minutes
           </span>
         </div>
         
-        {/* Enhanced Progress bar */}
-        <div className="relative w-full bg-gray-200 rounded-full h-3 overflow-hidden shadow-inner">
+        {/* Clean progress bar */}
+        <div 
+          className="w-full h-1 rounded-full"
+          style={{ backgroundColor: '#f3f4f6' }}
+        >
           <div 
-            className="bg-gradient-to-r from-emerald-500 to-emerald-600 h-3 rounded-full shadow-sm transition-all duration-500 ease-out"
-            style={{ width: '25%' }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30 -skew-x-12 animate-pulse"></div>
-          </div>
+            className="h-1 rounded-full transition-all duration-300"
+            style={{ 
+              width: '25%',
+              backgroundColor: '#374151'
+            }}
+          ></div>
         </div>
-        
-        {/* Progress labels */}
-        <div className="flex justify-between mt-2 text-xs text-gray-500">
-          <span className="font-medium text-emerald-600">Informations</span>
-          <span>Adresse</span>
-          <span>Détails</span>
-          <span>Validation</span>
-        </div>
-      </div>
-
-      {/* FORM HEADER - Simplified for dedicated section */}
-      <div className="text-center mb-8">
-        <p className="text-lg" style={{ color: '#6b7280' }}>
-          Renseignez ces 3 informations pour débuter votre accompagnement
-        </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         
         {/* Type de raccordement */}
         <div className="group">
-          <label htmlFor="type_raccordement" className="block text-sm font-semibold mb-3 transition-colors" style={{ color: '#1f2937' }}>
-            Type de raccordement *
+          <label 
+            htmlFor="type_raccordement" 
+            className="block text-sm font-medium mb-2"
+            style={{ color: '#374151' }}
+          >
+            Type de raccordement
           </label>
           <select
             id="type_raccordement"
@@ -158,19 +156,18 @@ const MiniForm: React.FC = () => {
             required
             value={formData.type_raccordement}
             onChange={handleInputChange}
-            className="w-full px-4 py-4 text-base rounded-xl bg-white appearance-none transition-all duration-200 shadow-sm touch-manipulation"
+            className="w-full px-3 py-3 text-base bg-white appearance-none transition-colors duration-200"
             style={{ 
-              minHeight: '52px',
-              border: '2px solid #e5e7eb',
+              border: '1px solid #d1d5db',
+              borderRadius: '6px',
               color: '#1f2937'
             }}
             onFocus={(e) => {
-              e.target.style.borderColor = '#2563eb'
-              e.target.style.boxShadow = '0 0 0 4px rgba(37, 99, 235, 0.1)'
+              e.target.style.borderColor = '#374151'
+              e.target.style.outline = 'none'
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = '#e5e7eb'
-              e.target.style.boxShadow = 'none'
+              e.target.style.borderColor = '#d1d5db'
             }}
           >
             <option value="">Sélectionnez le type</option>
@@ -192,8 +189,12 @@ const MiniForm: React.FC = () => {
 
         {/* Code postal */}
         <div className="group">
-          <label htmlFor="code_postal" className="block text-sm font-semibold mb-3 transition-colors" style={{ color: '#1f2937' }}>
-            Code postal *
+          <label 
+            htmlFor="code_postal" 
+            className="block text-sm font-medium mb-2"
+            style={{ color: '#374151' }}
+          >
+            Code postal
           </label>
           <input
             type="text"
@@ -203,21 +204,20 @@ const MiniForm: React.FC = () => {
             maxLength={5}
             value={formData.code_postal}
             onChange={handleInputChange}
-            className="w-full px-4 py-4 text-base rounded-xl transition-all duration-200 shadow-sm"
+            className="w-full px-3 py-3 text-base transition-colors duration-200"
             style={{ 
-              minHeight: '52px',
-              border: '2px solid #e5e7eb',
+              border: '1px solid #d1d5db',
+              borderRadius: '6px',
               color: '#1f2937'
             }}
             placeholder="75001"
             inputMode="numeric"
             onFocus={(e) => {
-              e.target.style.borderColor = '#2563eb'
-              e.target.style.boxShadow = '0 0 0 4px rgba(37, 99, 235, 0.1)'
+              e.target.style.borderColor = '#374151'
+              e.target.style.outline = 'none'
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = '#e5e7eb'
-              e.target.style.boxShadow = 'none'
+              e.target.style.borderColor = '#d1d5db'
             }}
           />
           {errors.code_postal && (
@@ -232,8 +232,12 @@ const MiniForm: React.FC = () => {
 
         {/* Téléphone */}
         <div className="group">
-          <label htmlFor="telephone" className="block text-sm font-semibold mb-3 transition-colors" style={{ color: '#1f2937' }}>
-            Téléphone *
+          <label 
+            htmlFor="telephone" 
+            className="block text-sm font-medium mb-2"
+            style={{ color: '#374151' }}
+          >
+            Téléphone
           </label>
           <input
             type="tel"
@@ -242,21 +246,20 @@ const MiniForm: React.FC = () => {
             required
             value={formData.telephone}
             onChange={handleInputChange}
-            className="w-full px-4 py-4 text-base rounded-xl transition-all duration-200 shadow-sm"
+            className="w-full px-3 py-3 text-base transition-colors duration-200"
             style={{ 
-              minHeight: '52px',
-              border: '2px solid #e5e7eb',
+              border: '1px solid #d1d5db',
+              borderRadius: '6px',
               color: '#1f2937'
             }}
             placeholder="06 12 34 56 78"
             inputMode="tel"
             onFocus={(e) => {
-              e.target.style.borderColor = '#2563eb'
-              e.target.style.boxShadow = '0 0 0 4px rgba(37, 99, 235, 0.1)'
+              e.target.style.borderColor = '#374151'
+              e.target.style.outline = 'none'
             }}
             onBlur={(e) => {
-              e.target.style.borderColor = '#e5e7eb'
-              e.target.style.boxShadow = 'none'
+              e.target.style.borderColor = '#d1d5db'
             }}
           />
           {errors.telephone && (
@@ -273,15 +276,22 @@ const MiniForm: React.FC = () => {
         <button
           type="submit"
           disabled={!isFormValid || isSubmitting}
-          className={`w-full py-5 px-8 text-lg font-semibold rounded-xl transition-all duration-200 shadow-lg relative overflow-hidden ${
-            isFormValid && !isSubmitting
-              ? 'text-white hover:shadow-xl focus:outline-none focus:ring-4 transform hover:scale-[1.02] active:scale-[0.98]'
-              : 'cursor-not-allowed'
-          }`}
+          className="w-full py-3 px-6 text-base font-medium transition-colors duration-200"
           style={{ 
-            minHeight: '52px',
-            backgroundColor: isFormValid && !isSubmitting ? '#10b981' : '#d1d5db',
-            color: isFormValid && !isSubmitting ? '#ffffff' : '#9ca3af'
+            backgroundColor: isFormValid && !isSubmitting ? '#374151' : '#e5e7eb',
+            color: isFormValid && !isSubmitting ? '#ffffff' : '#9ca3af',
+            borderRadius: '6px',
+            border: 'none'
+          }}
+          onMouseEnter={(e) => {
+            if (isFormValid && !isSubmitting) {
+              e.currentTarget.style.backgroundColor = '#1f2937'
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (isFormValid && !isSubmitting) {
+              e.currentTarget.style.backgroundColor = '#374151'
+            }
           }}
           aria-label="Continuer vers l'étape suivante"
         >
@@ -315,17 +325,7 @@ const MiniForm: React.FC = () => {
         )}
       </form>
 
-      {/* ENHANCED SECURITY NOTE */}
-      <div className="mt-6 text-center">
-        <div className="flex items-center justify-center space-x-2 px-4 py-2 bg-gray-50 rounded-full border border-gray-200">
-          <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-          </svg>
-          <p className="text-xs font-medium text-gray-600">
-            Vos données sont sécurisées et ne seront jamais partagées
-          </p>
-        </div>
-      </div>
+
     </div>
   )
 }
