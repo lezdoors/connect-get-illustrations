@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
+import FormSection from '../components/FormSection'
 import ProcessSteps from '../components/ProcessSteps'
 import ServiceTypes from '../components/ServiceTypes'
 import ServicesOverview from '../components/ServicesOverview'
@@ -16,6 +17,7 @@ const HomePage: React.FC = () => {
       <PerformanceOptimizer />
       <Header />
       <Hero />
+      <FormSection />
       <ProcessSteps />
       <ServiceTypes />
       <ServicesOverview />

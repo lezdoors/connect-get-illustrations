@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Raccordement Connect - Live Preview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: #f1f5f9; 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header { 
+            background: white; 
+            padding: 1rem; 
+            border-bottom: 2px solid #e2e8f0; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header h1 { 
+            color: #1e293b; 
+            margin-bottom: 0.5rem; 
+            font-size: 1.5rem;
+        }
+        .status { 
+            background: #dcfce7; 
+            color: #166534; 
+            padding: 0.5rem 1rem; 
+            border-radius: 20px; 
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+        .buttons { 
+            margin-top: 1rem; 
+            display: flex; 
+            gap: 0.5rem; 
+            flex-wrap: wrap;
+        }
+        .btn { 
+            background: #3b82f6; 
+            color: white; 
+            border: none; 
+            padding: 0.5rem 1rem; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .btn:hover { background: #2563eb; transform: translateY(-1px); }
+        .btn.secondary { background: #64748b; }
+        .btn.secondary:hover { background: #475569; }
+        .iframe-container { 
+            flex: 1; 
+            padding: 1rem; 
+        }
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: 2px solid #e2e8f0; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: white;
+        }
+        @media (max-width: 768px) {
+            .header { padding: 0.75rem; }
+            .header h1 { font-size: 1.25rem; }
+            .btn { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 Raccordement Connect - Live Preview</h1>
+        <div class="status">✅ Production Build Running</div>
+        <div class="buttons">
+            <button class="btn" onclick="go('/')">🏠 Homepage</button>
+            <button class="btn" onclick="go('/enedis-raccordement')">📝 Form</button>
+            <button class="btn secondary" onclick="go('/enedis-raccordement?prefill=eyJzdGVwMSI6eyJ0eXBlX3JhY2NvcmRlbWVudCI6ImRlZmluaXRpZiIsImNvZGVfcG9zdGFsIjoiNzUwMDEiLCJ0ZWxlcGhvbmUiOiIwNiAzNCA1NiA3OCA5MCJ9fQ%3D%3D&step=2')">🧪 Test Step 2</button>
+            <button class="btn secondary" onclick="refresh()">🔄 Refresh</button>
+        </div>
+    </div>
+    <div class="iframe-container">
+        <iframe id="frame" src="https://3000-iciwqb29fgq70e346lts8-6532622b.e2b.dev/"></iframe>
+    </div>
+    <script>
+        const frame = document.getElementById('frame');
+        const base = 'https://3000-iciwqb29fgq70e346lts8-6532622b.e2b.dev';
+        
+        function go(path) { frame.src = base + path; }
+        function refresh() { frame.src = frame.src; }
+        
+        // Auto-refresh every 45 seconds
+        setInterval(() => { if (!document.hidden) refresh(); }, 45000);
+    </script>
+</body>
+</html>

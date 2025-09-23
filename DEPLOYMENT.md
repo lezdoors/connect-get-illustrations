@@ -1,113 +1,58 @@
-# MonElec.net Deployment Guide
+# 🚀 VERCEL DEPLOYMENT GUIDE
 
-## Quick Start Options
+## Quick Deploy to Vercel
 
-### Option 1: Vercel (Recommended for React)
-1. Push this code to GitHub
-2. Connect your GitHub repo to Vercel
-3. Deploy automatically with these settings:
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-   - Install Command: `npm install`
+### Option 1: GitHub Integration (Recommended)
+1. Go to [vercel.com](https://vercel.com) and sign in
+2. Click "New Project"  
+3. Import from GitHub: `lezdoors/connect-get-illustrations`
+4. Vercel will auto-detect Vite settings
+5. Deploy! 🚀
 
-### Option 2: Netlify
-1. Push code to GitHub or upload dist folder
-2. Build settings:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-
-### Option 3: Cloudflare Pages (Best for your use case)
-1. Build the project: `npm run build`
-2. Upload the `dist/` folder to Cloudflare Pages
-3. Or connect GitHub repo with build command: `npm run build`
-
-## Environment Setup
-
-### Development
+### Option 2: Vercel CLI
 ```bash
-npm install
-npm run dev
-# Runs on http://localhost:5173
+npm i -g vercel
+vercel
+# Follow the prompts
 ```
 
-### Production Build
-```bash
-npm run build
-# Creates dist/ folder ready for deployment
+## ✅ What's Already Configured
+
+- **vercel.json**: Proper SPA routing configuration
+- **React Router**: Fixed navigation for Vercel compatibility  
+- **Build Settings**: Vite build outputs to `dist/` folder
+- **Caching**: Optimal headers for static assets
+- **Routing**: All URLs route to index.html for SPA functionality
+
+## 🔧 Vercel Settings (Auto-configured)
+
+```json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist", 
+  "framework": "vite"
+}
 ```
 
-## CORS Issues (Sandbox Only)
-The CORS issues you're experiencing are specific to the E2B sandbox environment. They won't occur on proper hosting platforms like:
-- Vercel
-- Netlify  
-- Cloudflare Pages
-- Any standard web host
+## 🧪 Testing After Deployment
 
-## Files Ready for Deployment
+1. **Homepage**: Verify hero section loads properly
+2. **Form Flow**: Test mini form → step 2 redirect  
+3. **Direct URLs**: Test `/enedis-raccordement` direct access
+4. **Mobile**: Verify responsive design works
 
-### Core Files
-- `src/` - All React components and logic
-- `public/` - Static assets
-- `dist/` - Built production files (after `npm run build`)
-- `package.json` - Dependencies and scripts
-- `vite.config.ts` - Build configuration
+## 🌐 Domain Configuration
 
-### Components Structure
-- `Header.tsx` - Navigation and branding
-- `Hero.tsx` - Main hero section with house illustration  
-- `HouseIllustration.tsx` - Custom SVG house graphic
-- `SocialProof.tsx` - Certifications and trust indicators
-- `ProcessSteps.tsx` - 3-step process explanation
-- `Pricing.tsx` - Transparent pricing with 3 plans
-- `Testimonials.tsx` - Customer reviews and ratings
-- `CTA.tsx` - Call-to-action sections with urgency
-- `Footer.tsx` - Contact info and links
+After deployment, you can:
+1. Add custom domain in Vercel dashboard
+2. Configure DNS with your domain provider
+3. Vercel handles SSL certificates automatically
 
-## Next Steps for Full Business
+## 📞 Contact Info Update
 
-### 1. Multi-Step Form (Priority)
-Create the 5-step conversion funnel:
-- Step 1: Project details (address, property type)
-- Step 2: Technical specs (power, distance)  
-- Step 3: Contact information
-- Step 4: Summary and review
-- Step 5: Stripe payment (€129.80)
+Don't forget to update these in production:
+- Phone number: Currently `09 70 70 95 70`
+- Email: Currently `serviceclient@raccordement-connect.com`  
+- Domain references in sitemap.xml and robots.txt
 
-### 2. Backend Integration
-- Supabase for database (leads_raccordement table)
-- Real-time form saving
-- Email notifications
-- SMS tracking system
-
-### 3. Payment Processing
-- Stripe integration
-- Invoice generation
-- Payment confirmation emails
-
-### 4. SEO & Analytics
-- Google Analytics 4
-- Meta tags optimization
-- Structured data markup
-- French keywords optimization
-
-## Production Checklist
-- [ ] Domain configured
-- [ ] SSL certificate active
-- [ ] Analytics tracking setup
-- [ ] Contact forms working
-- [ ] Payment processing tested
-- [ ] Mobile optimization verified
-- [ ] Performance optimized (Core Web Vitals)
-
-## Support
-The landing page is production-ready and optimized for conversion. All design elements match the €120K/month business requirements with:
-
-✅ Professional electrical branding
-✅ Trust indicators (CONSUEL, RGE, ENEDIS)
-✅ Transparent pricing (€129.80 Express plan)
-✅ Customer social proof (2,847 clients)
-✅ Mobile-first responsive design
-✅ Fast loading performance
-✅ Clear conversion funnels
-
-Ready for Monday launch! 🚀
+Your site is now **100% Vercel-ready**! 🎉

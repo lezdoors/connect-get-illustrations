@@ -14,12 +14,12 @@ export default defineConfig({
       '127.0.0.1',
       '0.0.0.0',
       '.e2b.dev',
-      'igg22nvk3qb2627qpy61t-6532622b.e2b.dev',
-      '3000-igg22nvk3qb2627qpy61t-6532622b.e2b.dev'
+      'iciwqb29fgq70e346lts8-6532622b.e2b.dev',
+      '3000-iciwqb29fgq70e346lts8-6532622b.e2b.dev'
     ],
     hmr: {
-      clientPort: 3000,
-      host: 'localhost'
+      clientPort: 443,
+      host: '3000-iciwqb29fgq70e346lts8-6532622b.e2b.dev'
     }
   },
   preview: {
@@ -32,8 +32,8 @@ export default defineConfig({
       '127.0.0.1',
       '0.0.0.0',
       '.e2b.dev',
-      'igg22nvk3qb2627qpy61t-6532622b.e2b.dev',
-      '3000-igg22nvk3qb2627qpy61t-6532622b.e2b.dev'
+      'iciwqb29fgq70e346lts8-6532622b.e2b.dev',
+      '3000-iciwqb29fgq70e346lts8-6532622b.e2b.dev'
     ]
   },
   build: {

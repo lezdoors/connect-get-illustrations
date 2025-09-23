@@ -41,11 +41,7 @@ const RaccordementForm: React.FC = () => {
     step1: {
       type_raccordement: '',
       code_postal: '',
-      telephone: '',
-      nom: '',
-      prenom: '',
-      email: undefined as string | undefined,
-      vous_etes: '' as any
+      telephone: ''
     },
     step2: {
       numero_voie: '',
@@ -59,6 +55,10 @@ const RaccordementForm: React.FC = () => {
       telephone_proprietaire: ''
     },
     step3: {
+      nom: '',
+      prenom: '',
+      email: undefined as string | undefined,
+      vous_etes: '' as any,
       puissance_demandee: '',
       type_phase: '' as any,
       distance_reseau: '' as any,
@@ -80,7 +80,7 @@ const RaccordementForm: React.FC = () => {
   useEffect(() => {
     // Check if coming from mini form with prefilled data
     const prefillParam = searchParams.get('prefill')
-    const stepParam = searchParams.get('step') || window.location.hash.replace('#step=', '')
+    const stepParam = searchParams.get('step')
     
     if (prefillParam) {
       const prefillData = decodeBase64URL(prefillParam)
@@ -280,7 +280,7 @@ const RaccordementForm: React.FC = () => {
     <div className="min-h-screen bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold text-gray-900 text-center mb-8">
-          Votre demande en 4 étapes
+          Complétez votre demande
         </h1>
         
         <ProgressDots />
@@ -421,69 +421,6 @@ const Step1Form: React.FC<{data: any, errors: any, onChange: (name: string, valu
           <p className="mt-1 text-sm text-red-600">{errors.telephone}</p>
         )}
       </div>
-
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Nom *
-        </label>
-        <input
-          type="text"
-          value={data.nom}
-          onChange={(e) => onChange('nom', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-        />
-        {errors.nom && (
-          <p className="mt-1 text-sm text-red-600">{errors.nom}</p>
-        )}
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Prénom *
-        </label>
-        <input
-          type="text"
-          value={data.prenom}
-          onChange={(e) => onChange('prenom', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-        />
-        {errors.prenom && (
-          <p className="mt-1 text-sm text-red-600">{errors.prenom}</p>
-        )}
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Email (optionnel)
-        </label>
-        <input
-          type="email"
-          value={data.email}
-          onChange={(e) => onChange('email', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-        />
-        {errors.email && (
-          <p className="mt-1 text-sm text-red-600">{errors.email}</p>
-        )}
-      </div>
-
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Vous êtes (optionnel)
-        </label>
-        <select
-          value={data.vous_etes}
-          onChange={(e) => onChange('vous_etes', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-        >
-          <option value="">Sélectionnez</option>
-          {VOUS_ETES_OPTIONS.map(option => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      </div>
     </div>
   </div>
 )
@@ -492,7 +429,7 @@ const Step1Form: React.FC<{data: any, errors: any, onChange: (name: string, valu
 const Step2Form: React.FC<{data: any, codePostal: string, errors: any, onChange: (name: string, value: any) => void}> = ({ data, codePostal, errors, onChange }) => (
   <div>
     <h2 className="text-2xl font-bold text-gray-900 mb-6">
-      Adresse & projet
+      Adresse & détails du projet
     </h2>
     
     <div className="space-y-6">
@@ -690,11 +627,83 @@ const Step2Form: React.FC<{data: any, codePostal: string, errors: any, onChange:
 const Step3Form: React.FC<{data: any, errors: any, onChange: (name: string, value: any) => void}> = ({ data, errors, onChange }) => (
   <div>
     <h2 className="text-2xl font-bold text-gray-900 mb-6">
-      Détails techniques
+      Informations personnelles & détails techniques
     </h2>
     
     <div className="space-y-6">
-      <div className="grid md:grid-cols-2 gap-6">
+      {/* Personal Information Section */}
+      <div>
+        <h3 className="text-lg font-medium text-gray-900 mb-4">Vos coordonnées</h3>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Nom *
+            </label>
+            <input
+              type="text"
+              value={data.nom}
+              onChange={(e) => onChange('nom', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            />
+            {errors.nom && (
+              <p className="mt-1 text-sm text-red-600">{errors.nom}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Prénom *
+            </label>
+            <input
+              type="text"
+              value={data.prenom}
+              onChange={(e) => onChange('prenom', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            />
+            {errors.prenom && (
+              <p className="mt-1 text-sm text-red-600">{errors.prenom}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Email (optionnel)
+            </label>
+            <input
+              type="email"
+              value={data.email}
+              onChange={(e) => onChange('email', e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            />
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-4">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Vous êtes (optionnel)
+          </label>
+          <select
+            value={data.vous_etes}
+            onChange={(e) => onChange('vous_etes', e.target.value)}
+            className="w-full max-w-xs px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="">Sélectionnez</option>
+            {VOUS_ETES_OPTIONS.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      {/* Technical Details Section */}
+      <div>
+        <h3 className="text-lg font-medium text-gray-900 mb-4">Détails techniques</h3>
+        <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Puissance demandée (kVA) *
@@ -861,6 +870,7 @@ const Step3Form: React.FC<{data: any, errors: any, onChange: (name: string, valu
           </label>
         </div>
       </div>
+      </div>
 
       {/* File upload placeholder */}
       <div>
@@ -901,7 +911,7 @@ const Step4Form: React.FC<{data: any, errors: any, formSummary: any, onChange: (
           </div>
           <div>
             <span className="font-medium text-gray-700">Nom:</span> 
-            <span className="ml-2">{formSummary.step1.prenom} {formSummary.step1.nom}</span>
+            <span className="ml-2">{formSummary.step3.prenom} {formSummary.step3.nom}</span>
           </div>
           <div>
             <span className="font-medium text-gray-700">Adresse:</span> 

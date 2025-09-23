@@ -45,25 +45,33 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
       {/* Main Footer Content */}
-      <div className="container section">
-        <div className="grid lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <div className="flex items-center space-x-3 mb-6">
+              {/* Lightning Bolt Logo matching header */}
+              <div className="w-10 h-10 bg-white rounded-full border-2 border-gray-700 flex items-center justify-center">
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                  <path 
+                    d="M13 2L4.09 12.97C3.74 13.47 4.1 14.18 4.72 14.18H8L11 22L19.91 11.03C20.26 10.53 19.9 9.82 19.28 9.82H16L13 2Z" 
+                    fill="#84cc16" 
+                    stroke="#65a30d" 
+                    strokeWidth="1"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">{SITE.name}</h3>
-                <p className="text-xs text-gray-400">{SITE.description}</p>
+                <h3 className="text-lg font-bold text-white">Raccordement Connect</h3>
+                <p className="text-xs text-gray-400">Raccordement électrique simplifié</p>
               </div>
             </div>
 
             <p className="text-sm text-gray-400 mb-6 leading-relaxed">
-              Service expert en raccordement électrique. Interventions partout en France 
-              avec la garantie d'un service conforme aux normes ENEDIS et CONSUEL.
+              Votre partenaire raccordement au réseau d'électricité d'Enedis. 
+              Interventions partout en France avec la garantie d'un service 
+              conforme aux normes ENEDIS et CONSUEL.
             </p>
 
             {/* Certifications */}
@@ -75,25 +83,25 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <PhoneIcon className="w-5 h-5 text-primary-400" />
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <PhoneIcon className="w-5 h-5 text-blue-400 mt-0.5" />
                 <div>
-                  <div className="text-white font-medium">{SITE.phoneDisplay}</div>
-                  <div className="text-xs text-gray-400">Appel gratuit</div>
+                  <div className="text-white font-medium text-lg">{SITE.phoneDisplay}</div>
+                  <div className="text-xs text-gray-400">Appel gratuit depuis un fixe</div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <EnvelopeIcon className="w-5 h-5 text-primary-400" />
+              <div className="flex items-start space-x-3">
+                <EnvelopeIcon className="w-5 h-5 text-blue-400 mt-0.5" />
                 <div>
-                  <div className="text-white">{SITE.email}</div>
-                  <div className="text-xs text-gray-400">Réponse sous 48h ouvrées</div>
+                  <div className="text-white text-sm">{SITE.email}</div>
+                  <div className="text-xs text-gray-400">Réponse sous 24h ouvrées</div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <ClockIcon className="w-5 h-5 text-primary-400" />
+              <div className="flex items-start space-x-3">
+                <ClockIcon className="w-5 h-5 text-blue-400 mt-0.5" />
                 <div>
-                  <div className="text-white">Lun-Ven 9h-18h</div>
+                  <div className="text-white font-medium">Lun-Ven 9h-18h</div>
                   <div className="text-xs text-gray-400">Service client</div>
                 </div>
               </div>
@@ -209,21 +217,20 @@ const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
-        <div className="container py-6">
-          <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center space-y-4 lg:space-y-0">
             {/* Copyright */}
             <div className="text-sm text-gray-400">
-              © {currentYear} {SITE.name} - Tous droits réservés. 
-              <span className="ml-2">Service de raccordement électrique</span>
+              © {currentYear} Raccordement Connect - Tous droits réservés. Service de raccordement électrique
             </div>
 
             {/* Legal Links */}
-            <div className="flex flex-wrap justify-center lg:justify-end gap-4">
+            <div className="flex flex-wrap gap-4">
               {legalLinks.map((link, index) => (
                 <a 
                   key={index}
                   href={link.href}
-                  className="text-xs text-gray-400 hover:text-primary-400 transition-colors"
+                  className="text-xs text-gray-400 hover:text-blue-400 transition-colors"
                 >
                   {link.name}
                 </a>
@@ -232,11 +239,11 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Additional Info */}
-          <div className="mt-4 pt-4 border-t border-gray-800 text-center">
-            <p className="text-xs text-gray-500">
-              {SITE.name} est un service de raccordement électrique agréé ENEDIS. 
-              Nous intervenons sur tout le territoire français en partenariat avec des électriciens certifiés CONSUEL. 
-              Prix TTC, frais de déplacement inclus selon zone géographique.
+          <div className="mt-6 pt-4 border-t border-gray-800">
+            <p className="text-xs text-gray-500 leading-relaxed">
+              Raccordement Connect est un service de raccordement électrique agréé ENEDIS. 
+              Nous intervenons sur tout le territoire français en partenariat avec des électriciens certifiés CONSUEL, RGE, TTC, 
+              frais de déplacement inclus selon zone géographique.
             </p>
           </div>
         </div>

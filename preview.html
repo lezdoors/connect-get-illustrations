@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raccordement Connect - Live Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #1e293b;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: background-color 0.2s;
+        }
+        
+        .nav-btn:hover {
+            background: #2563eb;
+        }
+        
+        .nav-btn.secondary {
+            background: #64748b;
+        }
+        
+        .nav-btn.secondary:hover {
+            background: #475569;
+        }
+        
+        .preview-container {
+            padding: 1rem 2rem;
+            height: calc(100vh - 140px);
+        }
+        
+        .iframe-container {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+            
+            .preview-container {
+                padding: 0.5rem;
+                height: calc(100vh - 120px);
+            }
+            
+            .nav-buttons {
+                gap: 0.25rem;
+            }
+            
+            .nav-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <div>
+                <h1>🚀 Raccordement Connect - Live Preview</h1>
+                <p>Google 2025 compliance improvements with form restructuring completed</p>
+                <div style="margin-top: 0.5rem;">
+                    <span class="status">
+                        <div class="status-dot"></div>
+                        Live Development Server
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="navigateTo('/')">🏠 Homepage</button>
+            <button class="nav-btn" onclick="navigateTo('/enedis-raccordement')">📝 Form Page</button>
+            <button class="nav-btn secondary" onclick="navigateTo('/enedis-raccordement?prefill=eyJzdGVwMSI6eyJ0eXBlX3JhY2NvcmRlbWVudCI6ImRlZmluaXRpZiIsImNvZGVfcG9zdGFsIjoiNzUwMDEiLCJ0ZWxlcGhvbmUiOiIwNiAzNCA1NiA3OCA5MCJ9fQ%3D%3D&step=2')">🔄 Test Prefilled → Step 2</button>
+            <button class="nav-btn secondary" onclick="refreshPage()">🔄 Refresh</button>
+        </div>
+    </div>
+    
+    <div class="preview-container">
+        <div class="iframe-container">
+            <iframe id="preview" src="https://3000-iciwqb29fgq70e346lts8-6532622b.e2b.dev/" title="Raccordement Connect Preview"></iframe>
+        </div>
+    </div>
+    
+    <script>
+        const iframe = document.getElementById('preview');
+        const baseUrl = 'https://3000-iciwqb29fgq70e346lts8-6532622b.e2b.dev';
+        
+        function navigateTo(path) {
+            iframe.src = baseUrl + path;
+        }
+        
+        function refreshPage() {
+            iframe.src = iframe.src;
+        }
+        
+        // Auto-refresh every 30 seconds to catch live changes
+        setInterval(() => {
+            // Only refresh if the page is visible
+            if (!document.hidden) {
+                refreshPage();
+            }
+        }, 30000);
+    </script>
+</body>
+</html>

@@ -6,7 +6,7 @@ const ProcessSteps: React.FC = () => {
       number: 1,
       image: '/illustrations/Définir-le-type.png',
       title: 'Définir le type raccordement Enedis correspondant à votre besoin',
-      description: 'Bénéficiez de notre outil pour définir la demande de raccordement qui correspond à votre besoin. C\'est facile et rapide.'
+      description: 'Bénéficiez de notre outil pour définir la demande de raccordement qui corresponds à votre besoin. C\'est facile et rapide.'
     },
     {
       number: 2,
@@ -41,7 +41,7 @@ const ProcessSteps: React.FC = () => {
           </p>
         </div>
 
-        {/* Steps Grid with Connecting Lines */}
+        {/* Steps Grid with Connecting Lines - Performance Optimized */}
         <div className="relative">
           {/* Connecting line for desktop */}
           <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-200 via-green-200 to-blue-200 opacity-60"></div>

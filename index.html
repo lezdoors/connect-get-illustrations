@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- LCP Performance Optimization - Priority preloading -->
@@ -11,14 +11,16 @@
     <link rel="preload" as="image" href="/illustrations/Définir-le-type.png" />
     
     <!-- SEO Meta Tags -->
-    <title>Raccordement Électrique Enedis – Devis Gratuit | Raccordement Connect</title>
-    <meta name="description" content="Raccordement Enedis simplifié pour particuliers et pros. Estimation gratuite, experts certifiés ENEDIS, accompagnement personnalisé A à Z." />
+    <title>Raccordement Électrique Enedis – Votre Partenaire Expert | Devis Gratuit</title>
+    <meta name="description" content="Votre partenaire raccordement au réseau d'électricité d'Enedis. Service expert pour particuliers et pros. Devis gratuit, experts agréés ENEDIS, suivi personnalisé A à Z." />
     <meta name="keywords" content="raccordement électrique, ENEDIS, CONSUEL, électricité, France, devis, installation, photovoltaïque" />
     <meta name="author" content="Raccordement Connect" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Raccordement Électrique Enedis – Devis Gratuit | Raccordement Connect" />
-    <meta property="og:description" content="Raccordement Enedis simplifié pour particuliers et pros. Estimation gratuite, experts certifiés ENEDIS, accompagnement personnalisé A à Z." />
+    <meta property="og:title" content="Raccordement Électrique Enedis – Votre Partenaire Expert | Devis Gratuit" />
+    <meta property="og:description" content="Votre partenaire raccordement au réseau d'électricité d'Enedis. Service expert pour particuliers et pros. Devis gratuit, experts agréés ENEDIS, suivi personnalisé A à Z." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
     
@@ -27,8 +29,8 @@
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Raccordement Connect",
-      "description": "Service expert en raccordement électrique ENEDIS",
+      "name": "Raccordement Électrique Enedis",
+      "description": "Votre partenaire raccordement au réseau d'électricité d'Enedis",
       "url": "https://raccordement-connect.com",
       "telephone": "+33970709570",
       "address": {
@@ -44,21 +46,38 @@
     }
     </script>
     
-    <!-- Favicon -->
+    <!-- Favicon and PWA Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="msapplication-TileColor" content="#2563eb" />
     
-    <!-- Fonts - Non-blocking optimization -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" /></noscript>
+    <!-- Performance Optimizations -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="preconnect" href="https://vitals.vercel-analytics.com" />
+    <meta name="performance-budget" content="lcp:2500,fid:100,cls:0.1" />
     
-    <!-- Critical CSS inline fallback -->
+    <!-- Critical CSS - System fonts for optimal performance -->
     <style>
-      /* Critical font fallback to prevent invisible text */
-      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+      /* System fonts for zero performance penalty */
+      body { 
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-display: swap;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Prevent layout shift */
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* Loading state optimization */
+      #root {
+        min-height: 100vh;
+      }
     </style>
   </head>
   <body>

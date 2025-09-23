@@ -4,112 +4,129 @@ import { SITE } from '../config/site'
 
 const Hero: React.FC = () => {
   return (
-    <section className="hero-container bg-gradient-to-br from-blue-50 via-white to-green-50 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* NEW CENTERED HERO LAYOUT WITH FORM */}
-        <div className="text-center mb-8">
-          <h1 className="hero-title text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-            {SITE.tagline}
-          </h1>
+    <section className="bg-white">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center min-h-[500px]">
           
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto font-medium">
-            Estimation rapide et gratuite • Experts certifiés • Accompagnement personnalisé
-          </p>
-        </div>
-
-        {/* RESPONSIVE LAYOUT: MOBILE-FIRST DESIGN */}
-        <div className="grid lg:grid-cols-12 gap-8 items-center">
-          
-          {/* MOBILE: Single illustration above form (shown only on mobile) */}
-          <div className="lg:hidden col-span-full flex justify-center mb-6">
-            <div className="w-48 h-32">
-              <img 
-                src="/illustrations/a-right-hero.png" 
-                alt="Maison connectée avec panneaux solaires" 
-                className="w-full h-full object-contain drop-shadow-lg"
-                loading="eager"
-                fetchPriority="high"
-                width="192"
-                height="128"
-              />
-            </div>
-          </div>
-
-          {/* LEFT ILLUSTRATION - Electric Pole (Desktop only) */}
-          <div className="lg:col-span-3 hidden lg:flex justify-center">
-            <div className="w-full max-w-sm">
-              <img 
-                src="/illustrations/a-left-hero.png" 
-                alt="Infrastructure électrique ENEDIS" 
-                className="w-full h-auto drop-shadow-lg"
-                loading="eager"
-                fetchPriority="high"
-                width="300"
-                height="400"
-              />
-            </div>
-          </div>
-
-          {/* CENTER - HERO FORM (PRIMARY CONVERSION POINT) */}
-          <div className="lg:col-span-6 flex justify-center">
-            <div className="w-full max-w-md px-4 lg:px-0">
-              <HeroMiniForm />
-            </div>
-          </div>
-
-          {/* RIGHT ILLUSTRATION - House with Solar & Car (Desktop only) */}
-          <div className="lg:col-span-3 hidden lg:flex justify-center">
-            <div className="w-full max-w-sm">
-              <img 
-                src="/illustrations/a-right-hero.png" 
-                alt="Maison connectée avec panneaux solaires et véhicule électrique" 
-                className="w-full h-auto drop-shadow-lg"
-                loading="eager"
-                fetchPriority="high"
-                width="300"
-                height="400"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* SECONDARY TRUST ELEMENTS & CONTACT */}
-        <div className="mt-12 text-center">
-          {/* TRUST INDICATORS */}
-          <div className="flex flex-wrap justify-center gap-8 text-base text-gray-700 mb-6">
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-green-600 rounded-full"></div>
-              <span className="font-medium">Estimation sous 3 jours ouvrés</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-              <span className="font-medium">Experts certifiés ENEDIS</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-green-600 rounded-full"></div>
-              <span className="font-medium">Accompagnement personnalisé A à Z</span>
-            </div>
-          </div>
-
-          {/* SECONDARY CTA */}
-          <div>
-            <p className="text-gray-600 mb-2">Besoin d'aide ?</p>
-            <a 
-              href={SITE.phoneLink}
-              className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-lg underline decoration-2 underline-offset-4 transition-colors"
-              onClick={() => {
-                // Track phone clicks for analytics
-                if (typeof window !== 'undefined' && (window as any).gtag) {
-                  (window as any).gtag('event', 'tel_click', {
-                    event_category: 'engagement',
-                    event_label: 'hero_phone_cta'
-                  })
-                }
+          {/* LEFT SIDE - CONTENT */}
+          <div className="w-full lg:w-7/12 pr-0 lg:pr-16">
+            
+            {/* MAIN HEADLINE */}
+            <h1 
+              className="text-4xl lg:text-5xl font-medium leading-tight mb-8"
+              style={{ 
+                color: '#1f2937',
+                fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+                letterSpacing: '-0.025em'
               }}
             >
-              📞 {SITE.phoneDisplay}
-            </a>
-            <p className="text-sm text-gray-500 mt-2">Lundi au vendredi • 9h-18h</p>
+              Raccordement Électrique Enedis<br />
+              <span style={{ color: '#059669' }}>Simple et Professionnel</span>
+            </h1>
+            
+            {/* SUBTITLE */}
+            <p 
+              className="text-xl font-normal mb-4"
+              style={{ 
+                color: '#374151',
+                lineHeight: '1.6'
+              }}
+            >
+              Votre partenaire expert pour tous vos projets de raccordement électrique. 
+              Service complet, accompagnement personnalisé, partout en France.
+            </p>
+            
+            {/* CTA BUTTON */}
+            <div className="mb-12">
+              <a 
+                href="#form-section"
+                className="inline-block px-8 py-4 text-lg font-medium transition-all duration-200"
+                style={{ 
+                  backgroundColor: '#059669',
+                  color: '#ffffff',
+                  borderRadius: '8px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#047857'
+                  e.currentTarget.style.transform = 'translateY(-1px)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#059669'
+                  e.currentTarget.style.transform = 'translateY(0)'
+                }}
+                onClick={() => {
+                  document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Obtenir mon accompagnement →
+              </a>
+            </div>
+            
+            {/* TRUST INDICATORS */}
+            <div className="flex flex-wrap gap-6 mb-8">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                <span className="text-sm font-medium" style={{ color: '#4b5563' }}>
+                  Experts Certifiés ENEDIS
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                <span className="text-sm font-medium" style={{ color: '#4b5563' }}>
+                  Service dans toute la France
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                <span className="text-sm font-medium" style={{ color: '#4b5563' }}>
+                  +50,000 raccordements réalisés
+                </span>
+              </div>
+            </div>
+
+            {/* PHONE CTA */}
+            <div>
+              <p className="text-gray-600 mb-2">Ou appelez-nous :</p>
+              <a 
+                href={SITE.phoneLink}
+                className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold text-lg transition-colors"
+                onClick={() => {
+                  // Track phone clicks for analytics
+                  if (typeof window !== 'undefined' && (window as any).gtag) {
+                    (window as any).gtag('event', 'tel_click', {
+                      event_category: 'engagement',
+                      event_label: 'hero_phone_cta'
+                    })
+                  }
+                }}
+              >
+                {SITE.phoneDisplay}
+              </a>
+            </div>
+          </div>
+          
+          {/* RIGHT SIDE - OPTIMIZED ILLUSTRATION */}
+          <div className="hidden lg:block w-5/12">
+            <div className="flex justify-center">
+              <div className="max-w-sm">
+                <picture>
+                  <source srcSet="/illustrations/a-right-hero.webp" type="image/webp" />
+                  <img 
+                    src="/illustrations/a-right-hero.png" 
+                    alt="Maison connectée avec panneaux solaires et véhicule électrique" 
+                    className="w-full h-auto drop-shadow-lg"
+                    loading="eager"
+                    fetchPriority="high"
+                    width="280"
+                    height="350"
+                    style={{ 
+                      maxWidth: '280px',
+                      aspectRatio: '4/5'
+                    }}
+                  />
+                </picture>
+              </div>
+            </div>
           </div>
         </div>
       </div>
