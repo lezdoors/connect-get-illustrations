@@ -19,11 +19,39 @@ const Header: React.FC = () => {
           {/* Enhanced Logo */}
           <div className="flex items-center">
             <div className="flex items-center space-x-3 sm:space-x-4">
-              {/* Professional Logo Icon */}
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
-                <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
+              {/* Professional Circular Logo Icon */}
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+                <div className="w-full h-full bg-white rounded-full shadow-lg border-2 border-gray-100 flex items-center justify-center relative overflow-hidden">
+                  {/* Circular electrical connection design */}
+                  <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 100 100" fill="none">
+                    {/* Outer circular border */}
+                    <circle cx="50" cy="50" r="42" stroke="#0ea5e9" strokeWidth="2" fill="none" />
+                    
+                    {/* Electrical plug connections - inspired by your logo */}
+                    <g transform="rotate(0 50 50)">
+                      {/* Top connection */}
+                      <rect x="46" y="15" width="8" height="12" rx="2" fill="#10b981" />
+                      <rect x="48" y="10" width="4" height="8" rx="1" fill="#10b981" />
+                    </g>
+                    
+                    <g transform="rotate(120 50 50)">
+                      {/* Right connection */}
+                      <rect x="46" y="15" width="8" height="12" rx="2" fill="#f59e0b" />
+                      <rect x="48" y="10" width="4" height="8" rx="1" fill="#f59e0b" />
+                    </g>
+                    
+                    <g transform="rotate(240 50 50)">
+                      {/* Left connection */}
+                      <rect x="46" y="15" width="8" height="12" rx="2" fill="#0ea5e9" />
+                      <rect x="48" y="10" width="4" height="8" rx="1" fill="#0ea5e9" />
+                    </g>
+                    
+                    {/* Center hub */}
+                    <circle cx="50" cy="50" r="12" fill="#2563eb" />
+                    <circle cx="50" cy="50" r="8" fill="white" />
+                    <circle cx="50" cy="50" r="4" fill="#2563eb" />
+                  </svg>
+                </div>
               </div>
               {/* Brand Text */}
               <div className="hidden sm:block">
