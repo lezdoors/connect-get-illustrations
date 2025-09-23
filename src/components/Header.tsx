@@ -16,17 +16,32 @@ const Header: React.FC = () => {
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3 md:py-4">
-          {/* Logo */}
+          {/* Enhanced Logo */}
           <div className="flex items-center">
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              {/* Professional Logo Icon */}
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center shadow-lg">
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <div>
-                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-blue-600">{SITE.name}</h1>
-                <p className="text-xs text-gray-600 hidden sm:block">Raccordement électrique simplifié</p>
+              {/* Brand Text */}
+              <div className="hidden sm:block">
+                <div className="text-sm md:text-base font-semibold text-gray-800 leading-tight">
+                  Votre partenaire raccordement
+                </div>
+                <div className="text-sm md:text-base font-semibold text-blue-600 leading-tight">
+                  au réseau d'électricité d'Enedis
+                </div>
+              </div>
+              {/* Mobile-only simplified text */}
+              <div className="sm:hidden">
+                <div className="text-sm font-bold text-blue-600">
+                  Raccordement
+                </div>
+                <div className="text-xs text-gray-600">
+                  Enedis
+                </div>
               </div>
             </div>
           </div>
