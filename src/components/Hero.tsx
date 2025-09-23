@@ -1,144 +1,79 @@
 import React from 'react'
-import MiniForm from './MiniForm'
 import { SITE } from '../config/site'
 
 const Hero: React.FC = () => {
-
   return (
     <section 
-      className="relative py-16 lg:py-24 overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%)'
-      }}
+      className="relative py-20 lg:py-32"
+      style={{ backgroundColor: '#1e40af' }}
     >
-      {/* Subtle background pattern */}
-      <div 
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(59,130,246,0.05) 1px, transparent 0)',
-          backgroundSize: '32px 32px'
-        }}
-      ></div>
-      
-      <div className="relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* MOBILE-OPTIMIZED HEADLINES */}
-        <div className="text-center mb-6 md:mb-8 lg:mb-10 px-2">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-3 md:mb-4">
-            Le raccordement Enedis.<br className="hidden sm:block" /><span className="sm:hidden"> </span>Simple et rapide !
+        {/* CLEAN HERO CONTENT - CENTER ALIGNED */}
+        <div className="text-center max-w-4xl mx-auto">
+          
+          {/* HERO HEADLINE */}
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            Raccordement Électrique Enedis
+            <span className="block text-white/90 mt-2">Simple et Professionnel</span>
           </h1>
           
-          <h2 className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-4 md:mb-6 font-medium px-2">
-            Partenaire n°1 en France pour les demandes de raccordements Enedis
-          </h2>
-          
-          <p className="text-base sm:text-lg text-gray-600 mb-4 md:mb-6 max-w-3xl mx-auto px-2">
-            Estimation rapide et gratuite • Experts certifiés • Accompagnement personnalisé
+          {/* HERO SUBTITLE */}
+          <p className="text-xl lg:text-2xl text-white/80 mb-8 font-normal leading-relaxed max-w-3xl mx-auto">
+            Votre partenaire expert pour tous vos projets de raccordement électrique. 
+            Service complet, accompagnement personnalisé, partout en France.
           </p>
-        </div>
-
-        {/* MAIN LAYOUT: LARGER ILLUSTRATIONS → COMPACT FORM → LARGER ILLUSTRATIONS */}
-        <div className="grid lg:grid-cols-10 gap-2 lg:gap-4 items-center">
           
-          {/* LEFT ILLUSTRATION - Much larger scale for better presence */}
-          <div className="lg:col-span-3 hidden lg:flex justify-center">
-            <div className="w-full max-w-none transform hover:scale-105 transition-transform duration-300 ease-out">
-              <img 
-                src="/illustrations/a-left-hero.png" 
-                alt="Infrastructure électrique ENEDIS" 
-                className="w-full h-auto scale-[1.6] hover:brightness-110 transition-all duration-300"
-                loading="eager"
-                style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.08))' }}
-              />
-            </div>
-          </div>
-
-          {/* CENTER - COMPACT ELEGANT FORM */}
-          <div className="lg:col-span-4 col-span-full">
-            <div className="max-w-lg mx-auto">
-              <MiniForm />
-            </div>
-          </div>
-
-          {/* RIGHT ILLUSTRATION - Much larger scale for better presence */}
-          <div className="lg:col-span-3 hidden lg:flex justify-center">
-            <div className="w-full max-w-none transform hover:scale-105 transition-transform duration-300 ease-out">
-              <img 
-                src="/illustrations/a-right-hero.png" 
-                alt="Maison connectée avec panneaux solaires" 
-                className="w-full h-auto scale-[1.6] hover:brightness-110 transition-all duration-300"
-                loading="eager"
-                style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.08))' }}
-              />
-            </div>
-          </div>
-
-          {/* TABLET LAYOUT - Larger illustrations above form */}
-          <div className="hidden md:flex lg:hidden col-span-full mb-8 justify-center gap-12">
-            <div className="flex-1 max-w-sm">
-              <img
-                src="/illustrations/a-left-hero.png"
-                alt="Infrastructure électrique"
-                className="w-full h-auto scale-125 transform hover:scale-[1.35] transition-transform duration-300"
-                loading="lazy"
-                style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.08))' }}
-              />
-            </div>
-            <div className="flex-1 max-w-sm">
-              <img
-                src="/illustrations/a-right-hero.png"
-                alt="Maison avec panneaux solaires"
-                className="w-full h-auto scale-125 transform hover:scale-[1.35] transition-transform duration-300"
-                loading="lazy"
-                style={{ filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.08))' }}
-              />
-            </div>
-          </div>
-
-          {/* MOBILE: Clean conversion-focused CTA instead of illustrations */}
-          <div className="md:hidden col-span-full mt-6">
-            <div className="text-center px-4">
-              <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 mb-4">
-                <p className="text-blue-800 font-medium text-sm">
-                  ⚡ Démarche 100% en ligne • Suivi personnalisé • Experts ENEDIS
-                </p>
-              </div>
-              <p className="text-gray-600 text-sm">
-                Plus de <strong>50 000 raccordements</strong> réalisés avec succès
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* ENHANCED TRUST INDICATORS */}
-        <div className="text-center mt-8 lg:mt-12">
-          <div className="flex flex-wrap justify-center gap-6 lg:gap-8 text-sm text-gray-600">
-            <div className="flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100">
-              <div className="w-2 h-2 bg-emerald-600 rounded-full animate-pulse"></div>
-              <span className="font-medium">Experts certifiés ENEDIS</span>
-            </div>
-            <div className="flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
-              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
-              <span className="font-medium">Service dans toute la France</span>
-            </div>
-            <div className="flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100">
-              <div className="w-2 h-2 bg-emerald-600 rounded-full animate-pulse"></div>
-              <span className="font-medium">Accompagnement complet</span>
-            </div>
+          {/* SINGLE PROMINENT CTA */}
+          <div className="mb-12">
+            <a 
+              href="#form-section"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-xl"
+              style={{ backgroundColor: '#10b981' }}
+              onClick={() => {
+                document.getElementById('form-section')?.scrollIntoView({ behavior: 'smooth' });
+                if (typeof window !== 'undefined' && (window as any).gtag) {
+                  (window as any).gtag('event', 'cta_click', {
+                    event_category: 'engagement',
+                    event_label: 'hero_main_cta'
+                  });
+                }
+              }}
+            >
+              Obtenir mon accompagnement
+              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
           
-          {/* ENHANCED PHONE CTA */}
-          <div className="mt-6">
+          {/* TRUST INDICATORS */}
+          <div className="flex flex-wrap justify-center gap-6 lg:gap-8 text-white/90">
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#10b981' }}></div>
+              <span className="text-sm font-medium">Experts Certifiés ENEDIS</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#10b981' }}></div>
+              <span className="text-sm font-medium">Service dans toute la France</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#10b981' }}></div>
+              <span className="text-sm font-medium">+50,000 raccordements réalisés</span>
+            </div>
+          </div>
+
+          {/* PHONE CTA */}
+          <div className="mt-8">
             <a 
               href={SITE.phoneLink}
-              className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium text-lg px-4 py-2 rounded-lg hover:bg-blue-50 transition-all duration-200 transform hover:scale-105"
+              className="inline-flex items-center space-x-2 text-white/90 hover:text-white font-medium text-lg px-4 py-2 rounded-lg border border-white/20 hover:border-white/40 transition-all duration-200"
               onClick={() => {
                 if (typeof window !== 'undefined' && (window as any).gtag) {
                   (window as any).gtag('event', 'tel_click', {
                     event_category: 'engagement',
                     event_label: 'hero_phone_cta'
-                  })
+                  });
                 }
               }}
             >
@@ -149,7 +84,6 @@ const Hero: React.FC = () => {
             </a>
           </div>
         </div>
-      </div>
       </div>
     </section>
   )

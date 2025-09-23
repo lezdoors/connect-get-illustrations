@@ -105,11 +105,7 @@ const MiniForm: React.FC = () => {
                      Object.keys(errors).length === 0
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-4 sm:p-6 lg:p-7 transform hover:shadow-3xl transition-all duration-300 hover:scale-[1.02] relative z-10 mx-2 sm:mx-0"
-         style={{ 
-           boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.8)',
-           backdropFilter: 'blur(8px)'
-         }}>
+    <div className="p-0">
       
       {/* ENHANCED PROGRESS INDICATOR */}
       <div className="mb-6">
@@ -142,13 +138,10 @@ const MiniForm: React.FC = () => {
         </div>
       </div>
 
-      {/* FORM HEADER */}
-      <div className="text-center mb-6">
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">
-          Commencez votre demande
-        </h3>
-        <p className="text-gray-600">
-          Renseignez ces 3 informations pour continuer
+      {/* FORM HEADER - Simplified for dedicated section */}
+      <div className="text-center mb-8">
+        <p className="text-lg" style={{ color: '#6b7280' }}>
+          Renseignez ces 3 informations pour débuter votre accompagnement
         </p>
       </div>
 
@@ -156,7 +149,7 @@ const MiniForm: React.FC = () => {
         
         {/* Type de raccordement */}
         <div className="group">
-          <label htmlFor="type_raccordement" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-emerald-600 transition-colors">
+          <label htmlFor="type_raccordement" className="block text-sm font-semibold mb-3 transition-colors" style={{ color: '#1f2937' }}>
             Type de raccordement *
           </label>
           <select
@@ -165,7 +158,19 @@ const MiniForm: React.FC = () => {
             required
             value={formData.type_raccordement}
             onChange={handleInputChange}
-            className="w-full px-4 py-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-emerald-100 focus:border-emerald-500 bg-white appearance-none hover:border-gray-400 transition-all duration-200 shadow-sm touch-manipulation"
+            className="w-full px-4 py-4 text-base rounded-xl bg-white appearance-none transition-all duration-200 shadow-sm touch-manipulation"
+            style={{ 
+              border: '2px solid #e5e7eb',
+              color: '#1f2937'
+            }}
+            onFocus={(e) => {
+              e.target.style.borderColor = '#2563eb'
+              e.target.style.boxShadow = '0 0 0 4px rgba(37, 99, 235, 0.1)'
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = '#e5e7eb'
+              e.target.style.boxShadow = 'none'
+            }}
             style={{ minHeight: '52px' }}
           >
             <option value="">Sélectionnez le type</option>
@@ -187,7 +192,7 @@ const MiniForm: React.FC = () => {
 
         {/* Code postal */}
         <div className="group">
-          <label htmlFor="code_postal" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-emerald-600 transition-colors">
+          <label htmlFor="code_postal" className="block text-sm font-semibold mb-3 transition-colors" style={{ color: '#1f2937' }}>
             Code postal *
           </label>
           <input
@@ -198,10 +203,22 @@ const MiniForm: React.FC = () => {
             maxLength={5}
             value={formData.code_postal}
             onChange={handleInputChange}
-            className="w-full px-4 py-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-emerald-100 focus:border-emerald-500 hover:border-gray-400 transition-all duration-200 shadow-sm"
-            style={{ minHeight: '52px' }}
+            className="w-full px-4 py-4 text-base rounded-xl transition-all duration-200 shadow-sm"
+            style={{ 
+              minHeight: '52px',
+              border: '2px solid #e5e7eb',
+              color: '#1f2937'
+            }}
             placeholder="75001"
             inputMode="numeric"
+            onFocus={(e) => {
+              e.target.style.borderColor = '#2563eb'
+              e.target.style.boxShadow = '0 0 0 4px rgba(37, 99, 235, 0.1)'
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = '#e5e7eb'
+              e.target.style.boxShadow = 'none'
+            }}
           />
           {errors.code_postal && (
             <p className="mt-2 text-sm text-red-600 flex items-center" role="alert">
@@ -215,7 +232,7 @@ const MiniForm: React.FC = () => {
 
         {/* Téléphone */}
         <div className="group">
-          <label htmlFor="telephone" className="block text-sm font-semibold text-gray-700 mb-3 group-focus-within:text-emerald-600 transition-colors">
+          <label htmlFor="telephone" className="block text-sm font-semibold mb-3 transition-colors" style={{ color: '#1f2937' }}>
             Téléphone *
           </label>
           <input
@@ -225,10 +242,22 @@ const MiniForm: React.FC = () => {
             required
             value={formData.telephone}
             onChange={handleInputChange}
-            className="w-full px-4 py-4 text-base border-2 border-gray-300 rounded-xl focus:ring-4 focus:ring-emerald-100 focus:border-emerald-500 hover:border-gray-400 transition-all duration-200 shadow-sm"
-            style={{ minHeight: '52px' }}
+            className="w-full px-4 py-4 text-base rounded-xl transition-all duration-200 shadow-sm"
+            style={{ 
+              minHeight: '52px',
+              border: '2px solid #e5e7eb',
+              color: '#1f2937'
+            }}
             placeholder="06 12 34 56 78"
             inputMode="tel"
+            onFocus={(e) => {
+              e.target.style.borderColor = '#2563eb'
+              e.target.style.boxShadow = '0 0 0 4px rgba(37, 99, 235, 0.1)'
+            }}
+            onBlur={(e) => {
+              e.target.style.borderColor = '#e5e7eb'
+              e.target.style.boxShadow = 'none'
+            }}
           />
           {errors.telephone && (
             <p className="mt-2 text-sm text-red-600 flex items-center" role="alert">
@@ -244,12 +273,16 @@ const MiniForm: React.FC = () => {
         <button
           type="submit"
           disabled={!isFormValid || isSubmitting}
-          className={`w-full py-5 px-8 text-lg font-bold rounded-2xl transition-all duration-300 shadow-lg relative overflow-hidden ${
+          className={`w-full py-5 px-8 text-lg font-semibold rounded-xl transition-all duration-200 shadow-lg relative overflow-hidden ${
             isFormValid && !isSubmitting
-              ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white hover:from-emerald-600 hover:to-emerald-700 focus:outline-none focus:ring-4 focus:ring-emerald-200 transform hover:scale-[1.03] hover:shadow-xl active:scale-[0.98]'
-              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              ? 'text-white hover:shadow-xl focus:outline-none focus:ring-4 transform hover:scale-[1.02] active:scale-[0.98]'
+              : 'cursor-not-allowed'
           }`}
-          style={{ minHeight: '52px' }}
+          style={{ 
+            minHeight: '52px',
+            backgroundColor: isFormValid && !isSubmitting ? '#10b981' : '#d1d5db',
+            color: isFormValid && !isSubmitting ? '#ffffff' : '#9ca3af'
+          }}
           aria-label="Continuer vers l'étape suivante"
         >
           {/* Button shine effect */}
