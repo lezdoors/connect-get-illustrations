@@ -62,6 +62,8 @@ const ServiceTypes: React.FC = () => {
                     className="w-24 h-24 md:w-32 md:h-32 object-contain"
                     loading="lazy"
                     decoding="async"
+                    width="128"
+                    height="128"
                   />
                 </div>
 

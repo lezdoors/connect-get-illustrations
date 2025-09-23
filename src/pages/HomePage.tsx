@@ -7,10 +7,14 @@ import ServiceTypes from '../components/ServiceTypes'
 import ServicesOverview from '../components/ServicesOverview'
 import TrustContact from '../components/TrustContact'
 import Footer from '../components/Footer'
+import PerformanceOptimizer from '../components/PerformanceOptimizer'
+import CriticalCSS from '../components/CriticalCSS'
 
 const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
+      <CriticalCSS />
+      <PerformanceOptimizer />
       <Header />
       <Hero />
       <FormSection />

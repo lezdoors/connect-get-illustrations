@@ -95,14 +95,14 @@ const Footer: React.FC = () => {
                 <EnvelopeIcon className="w-5 h-5 text-blue-400 mt-0.5" />
                 <div>
                   <div className="text-white text-sm">{SITE.email}</div>
-                  <div className="text-xs text-gray-400">Réponse sous 2h</div>
+                  <div className="text-xs text-gray-400">Réponse sous 24h ouvrées</div>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <ClockIcon className="w-5 h-5 text-blue-400 mt-0.5" />
                 <div>
-                  <div className="text-white font-medium">Lun-Dim 8h-20h</div>
-                  <div className="text-xs text-gray-400">Support 7j/7</div>
+                  <div className="text-white font-medium">Lun-Ven 9h-18h</div>
+                  <div className="text-xs text-gray-400">Service client</div>
                 </div>
               </div>
             </div>

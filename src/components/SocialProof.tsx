@@ -34,8 +34,8 @@ const SocialProof: React.FC = () => {
     },
     {
       icon: ClockIcon,
-      number: '48h',
-      label: 'Délai moyen de raccordement',
+      number: '3-7j',
+      label: 'Délai moyen d\'estimation',
       color: 'text-blue-600'
     },
     {
@@ -126,8 +126,8 @@ const SocialProof: React.FC = () => {
                 <ClockIcon className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900">Support 7j/7</div>
-                <div className="text-sm text-gray-600">Équipe dédiée disponible</div>
+                <div className="font-semibold text-gray-900">Support client</div>
+                <div className="text-sm text-gray-600">Lun-ven 9h-18h</div>
               </div>
             </div>
             

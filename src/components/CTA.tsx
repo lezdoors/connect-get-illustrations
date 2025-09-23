@@ -9,26 +9,23 @@ import {
 
 const CTA: React.FC = () => {
   const [activeUsers, setActiveUsers] = useState(12)
-  const [availableSlots, setAvailableSlots] = useState(3)
+
 
   // Simulate live data updates
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveUsers(prev => Math.max(8, Math.min(18, prev + (Math.random() > 0.5 ? 1 : -1))))
-      // Occasionally update available slots
-      if (Math.random() > 0.9) {
-        setAvailableSlots(prev => Math.max(1, Math.min(7, prev + (Math.random() > 0.5 ? 1 : -1))))
-      }
+
     }, 5000)
 
     return () => clearInterval(interval)
   }, [])
 
   const urgencyFeatures = [
-    'Réponse immédiate garantie',
-    'Technicien disponible cette semaine',
-    'Dossier ENEDIS traité en priorité',
-    'Mise en service sous 48h maximum'
+    'Réponse sous 3 jours ouvrés',
+    'Techniciens certifiés disponibles',
+    'Dossier ENEDIS traité avec soin',
+    'Accompagnement personnalisé A-Z'
   ]
 
   return (
@@ -57,8 +54,8 @@ const CTA: React.FC = () => {
             </div>
 
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Votre raccordement électrique en
-              <span className="text-yellow-300 block">48h maximum</span>
+              Votre raccordement électrique
+              <span className="text-yellow-300 block">simplifié</span>
             </h2>
 
             <p className="text-xl text-blue-100 mb-8 leading-relaxed">
@@ -83,7 +80,7 @@ const CTA: React.FC = () => {
                 <div className="text-xs text-blue-200">Clients satisfaits</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-white mb-1">48h</div>
+                <div className="text-2xl font-bold text-white mb-1">3-7j</div>
                 <div className="text-xs text-blue-200">Délai moyen</div>
               </div>
               <div className="text-center">
@@ -96,16 +93,16 @@ const CTA: React.FC = () => {
           {/* Right CTA Card */}
           <div>
             <div className="bg-white rounded-3xl shadow-2xl p-8 text-gray-900">
-              {/* Urgency Header */}
-              <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded-r-lg mb-6">
+              {/* Information Header */}
+              <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg mb-6">
                 <div className="flex items-center">
-                  <ClockIcon className="w-6 h-6 text-red-500 mr-3" />
+                  <ClockIcon className="w-6 h-6 text-blue-500 mr-3" />
                   <div>
-                    <h3 className="text-lg font-semibold text-red-800">
-                      Créneaux disponibles cette semaine : {availableSlots}
+                    <h3 className="text-lg font-semibold text-blue-800">
+                      Experts disponibles
                     </h3>
-                    <p className="text-sm text-red-600">
-                      Réservez maintenant pour garantir votre intervention express
+                    <p className="text-sm text-blue-600">
+                      Demandez votre devis personnalisé maintenant
                     </p>
                   </div>
                 </div>
@@ -130,7 +127,7 @@ const CTA: React.FC = () => {
                 </button>
 
                 <div className="text-xs text-gray-500 mb-6">
-                  ✅ Sans engagement • ✅ Devis gratuit • ✅ Réponse immédiate
+                  ✅ Sans engagement • ✅ Devis gratuit • ✅ Réponse sous 3 jours ouvrés
                 </div>
               </div>
 
@@ -154,7 +151,7 @@ const CTA: React.FC = () => {
                 <div className="text-center mt-4">
                   <div className="flex items-center justify-center space-x-2 text-sm text-gray-600">
                     <UserGroupIcon className="w-4 h-4" />
-                    <span>Conseillers disponibles 7j/7 de 8h à 20h</span>
+                    <span>Conseillers disponibles lun-ven 9h-18h</span>
                   </div>
                 </div>
               </div>

@@ -22,7 +22,7 @@ const Header: React.FC = () => {
               className="text-xl font-medium"
               style={{ 
                 color: '#1f2937',
-                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+                fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
               }}
             >
               Raccordement Connect
@@ -32,7 +32,7 @@ const Header: React.FC = () => {
           {/* DESKTOP NAVIGATION */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <a
+              
                 key={item.name}
                 href={item.href}
                 className="text-sm font-medium transition-colors duration-200 hover:underline"
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
 
           {/* CLEAN PHONE NUMBER */}
           <div className="hidden md:block">
-            <a
+            
               href={SITE.phoneLink}
               className="text-sm font-medium transition-colors duration-200"
               style={{ color: '#374151' }}
@@ -66,13 +66,14 @@ const Header: React.FC = () => {
             </a>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE MENU BUTTON - Touch-optimized */}
           <div className="md:hidden">
             <button
               type="button"
               className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               style={{ minHeight: '44px', minWidth: '44px' }}
+              aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
             >
               {isMenuOpen ? (
@@ -84,12 +85,12 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* MOBILE NAVIGATION */}
+        {/* MOBILE NAVIGATION - Enhanced accessibility */}
         {isMenuOpen && (
           <div className="md:hidden border-t border-gray-200 bg-white">
             <div className="py-4 space-y-1">
               {navigation.map((item) => (
-                <a
+                
                   key={item.name}
                   href={item.href}
                   className="block px-4 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
@@ -100,13 +101,20 @@ const Header: React.FC = () => {
                 </a>
               ))}
               <div className="px-4 pt-4 border-t border-gray-200">
-                <a
+                
                   href={SITE.phoneLink}
                   className="block py-3 text-sm font-medium text-gray-900"
                   style={{ minHeight: '44px' }}
                 >
                   {SITE.phoneDisplay}
                 </a>
+                <button 
+                  className="w-full mt-3 py-3 px-4 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                  style={{ minHeight: '48px' }}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Commencer ma demande
+                </button>
               </div>
             </div>
           </div>

@@ -1,161 +1,233 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { TYPE_RACCORDEMENT_OPTIONS } from '../types/form'
+import { formatPhone } from '../utils/validation'
+import { getMergedUTMParams, encodeBase64URL, storeUTMParams } from '../utils/utm'
 
 const HeroMiniForm: React.FC = () => {
   const [formData, setFormData] = useState({
-    typeRaccordement: '',
-    codePostal: '',
-    telephone: '',
-    nom: '',
-    prenom: '',
-    email: ''
+    type_raccordement: '',
+    code_postal: '',
+    telephone: ''
   })
+  
+  const [errors, setErrors] = useState<{[key: string]: string}>({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+  // Store UTM params on component mount
+  useEffect(() => {
+    const utmParams = getMergedUTMParams()
+    storeUTMParams(utmParams)
+  }, [])
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    
+    let formattedValue = value
+    
+    // Format phone number
+    if (name === 'telephone') {
+      formattedValue = formatPhone(value)
+    }
+    
+    setFormData(prev => ({
+      ...prev,
+      [name]: formattedValue
+    }))
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }))
+    }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Simple validation for the 3 essential fields
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {}
+    
+    if (!formData.type_raccordement) {
+      newErrors.type_raccordement = 'Veuillez sélectionner un type de raccordement'
+    }
+    
+    if (!formData.code_postal) {
+      newErrors.code_postal = 'Code postal requis'
+    } else if (!/^\d{5}$/.test(formData.code_postal)) {
+      newErrors.code_postal = 'Code postal invalide (5 chiffres)'
+    }
+    
+    if (!formData.telephone) {
+      newErrors.telephone = 'Numéro de téléphone requis'
+    } else if (!/^\d{2}\s\d{2}\s\d{2}\s\d{2}\s\d{2}$/.test(formData.telephone)) {
+      newErrors.telephone = 'Numéro de téléphone invalide'
+    }
+    
+    return newErrors
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form data:', formData)
-    // TODO: Save lead and redirect to /enedis-raccordement step 2
-    alert('Formulaire soumis! Redirection vers le processus complet...')
+    
+    // Validate form
+    const validationErrors = validateForm()
+    
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors)
+      return
+    }
+    
+    setIsSubmitting(true)
+    
+    try {
+      const utmParams = getMergedUTMParams()
+      
+      // Prepare data for prefill in the full form
+      const prefillData = {
+        step1: {
+          ...formData,
+          source: 'hero-mini-form'
+        },
+        utm: utmParams
+      }
+      
+      // Redirect to main form with prefilled data
+      const prefillParam = encodeBase64URL(prefillData)
+      window.location.href = `/enedis-raccordement?prefill=${prefillParam}#step=2`
+      
+    } catch (error) {
+      console.error('Error submitting hero mini form:', error)
+      setErrors({ submit: 'Erreur lors de l\'envoi. Veuillez réessayer.' })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
+
+  const isFormValid = formData.type_raccordement && 
+                     formData.code_postal && 
+                     formData.telephone &&
+                     Object.keys(errors).length === 0
 
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
-      <div className="text-center mb-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">
-          Démarrez votre demande
+    <div className="hero-form bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+      {/* Form Header */}
+      <div className="mb-6 text-center">
+        <h3 className="text-2xl font-bold text-gray-900 mb-2">
+          Devis gratuit et immédiat
         </h3>
-        <p className="text-sm text-gray-600">
-          Complétez ce formulaire pour une première évaluation
+        <p className="text-sm text-gray-600 mb-4">
+          Étape 1 sur 4
         </p>
+        
+        {/* Progress indicator */}
+        <div className="flex justify-center space-x-2 mb-4">
+          <div className="w-8 h-2 bg-blue-600 rounded-full"></div>
+          <div className="w-8 h-2 bg-gray-200 rounded-full"></div>
+          <div className="w-8 h-2 bg-gray-200 rounded-full"></div>
+          <div className="w-8 h-2 bg-gray-200 rounded-full"></div>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Type de raccordement */}
         <div>
-          <label htmlFor="typeRaccordement" className="block text-sm font-medium text-gray-700 mb-1">
-            Type de raccordement
+          <label htmlFor="hero-type-raccordement" className="block text-sm font-semibold text-gray-700 mb-2">
+            Type de raccordement *
           </label>
           <select
-            id="typeRaccordement"
-            name="typeRaccordement"
-            value={formData.typeRaccordement}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            id="hero-type-raccordement"
+            name="type_raccordement"
             required
+            value={formData.type_raccordement}
+            onChange={handleInputChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 font-medium min-h-[48px] touch-manipulation text-base"
           >
-            <option value="">Sélectionnez</option>
-            <option value="definitif">Raccordement définitif</option>
-            <option value="provisoire">Raccordement provisoire</option>
-            <option value="collectif">Raccordement collectif</option>
-            <option value="augmentation">Augmentation puissance</option>
-            <option value="photovoltaique">Raccordement photovoltaïque</option>
+            <option value="">Sélectionnez le type</option>
+            {TYPE_RACCORDEMENT_OPTIONS.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
+          {errors.type_raccordement && (
+            <p className="mt-1 text-sm text-red-600">{errors.type_raccordement}</p>
+          )}
         </div>
 
         {/* Code postal */}
         <div>
-          <label htmlFor="codePostal" className="block text-sm font-medium text-gray-700 mb-1">
-            Code postal
+          <label htmlFor="hero-code-postal" className="block text-sm font-semibold text-gray-700 mb-2">
+            Code postal *
           </label>
           <input
             type="text"
-            id="codePostal"
-            name="codePostal"
-            value={formData.codePostal}
-            onChange={handleChange}
-            placeholder="75001"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-            pattern="[0-9]{5}"
-            maxLength={5}
+            id="hero-code-postal"
+            name="code_postal"
             required
+            maxLength={5}
+            value={formData.code_postal}
+            onChange={handleInputChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 font-medium min-h-[48px] touch-manipulation text-base"
+            placeholder="75001"
           />
+          {errors.code_postal && (
+            <p className="mt-1 text-sm text-red-600">{errors.code_postal}</p>
+          )}
         </div>
 
         {/* Téléphone */}
         <div>
-          <label htmlFor="telephone" className="block text-sm font-medium text-gray-700 mb-1">
-            Téléphone
+          <label htmlFor="hero-telephone" className="block text-sm font-semibold text-gray-700 mb-2">
+            Téléphone *
           </label>
           <input
             type="tel"
-            id="telephone"
+            id="hero-telephone"
             name="telephone"
+            required
             value={formData.telephone}
-            onChange={handleChange}
+            onChange={handleInputChange}
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 font-medium min-h-[48px] touch-manipulation text-base"
             placeholder="06 12 34 56 78"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-            required
           />
+          {errors.telephone && (
+            <p className="mt-1 text-sm text-red-600">{errors.telephone}</p>
+          )}
         </div>
 
-        {/* Nom et Prénom */}
-        <div className="grid grid-cols-2 gap-3">
-          <div>
-            <label htmlFor="nom" className="block text-sm font-medium text-gray-700 mb-1">
-              Nom
-            </label>
-            <input
-              type="text"
-              id="nom"
-              name="nom"
-              value={formData.nom}
-              onChange={handleChange}
-              placeholder="Dupont"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="prenom" className="block text-sm font-medium text-gray-700 mb-1">
-              Prénom
-            </label>
-            <input
-              type="text"
-              id="prenom"
-              name="prenom"
-              value={formData.prenom}
-              onChange={handleChange}
-              placeholder="Jean"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-              required
-            />
-          </div>
-        </div>
-
-        {/* Email */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="jean.dupont@email.com"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-            required
-          />
-        </div>
-
-        {/* Submit button */}
+        {/* Submit button - Mobile-optimized (minimum 44px height) */}
         <button
           type="submit"
-          className="w-full bg-primary-600 text-white font-medium py-3 px-4 rounded-md hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+          disabled={!isFormValid || isSubmitting}
+          className={`cta-button w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-200 transform hover:scale-105 min-h-[48px] touch-manipulation ${
+            isFormValid && !isSubmitting
+              ? 'bg-green-600 text-white hover:bg-green-700 shadow-lg active:bg-green-800'
+              : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+          }`}
         >
-          Valider ma demande
+          {isSubmitting ? (
+            <span className="flex items-center justify-center">
+              <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+              </svg>
+              Envoi...
+            </span>
+          ) : (
+            'Continuer ma demande'
+          )}
         </button>
 
-        <p className="text-xs text-gray-500 text-center mt-3">
-          Vos données sont protégées et ne seront jamais partagées
-        </p>
+        {errors.submit && (
+          <p className="mt-2 text-sm text-red-600 text-center">{errors.submit}</p>
+        )}
+        
+        {/* Trust element */}
+        <div className="text-center mt-4">
+          <p className="text-sm text-gray-500 font-medium">
+            ✓ Gratuit et sans engagement
+          </p>
+        </div>
       </form>
     </div>
   )
