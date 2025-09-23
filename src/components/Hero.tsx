@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* CENTER - COMPACT ELEGANT FORM */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 col-span-full">
             <div className="max-w-lg mx-auto">
               <MiniForm />
             </div>
@@ -96,29 +96,17 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* MOBILE ILLUSTRATIONS - Better spacing and proportions */}
-          <div className="md:hidden col-span-full mt-4 space-y-3 px-4">
-            <div className="flex justify-center">
-              <div className="w-full max-w-xs">
-                <img
-                  src="/illustrations/a-left-hero.png"
-                  alt="Infrastructure électrique"
-                  className="w-full h-auto scale-110 transform hover:scale-115 transition-transform duration-300"
-                  loading="lazy"
-                  style={{ filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.08))' }}
-                />
+          {/* MOBILE: Clean conversion-focused CTA instead of illustrations */}
+          <div className="md:hidden col-span-full mt-6">
+            <div className="text-center px-4">
+              <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 mb-4">
+                <p className="text-blue-800 font-medium text-sm">
+                  ⚡ Démarche 100% en ligne • Suivi personnalisé • Experts ENEDIS
+                </p>
               </div>
-            </div>
-            <div className="flex justify-center">
-              <div className="w-full max-w-xs">
-                <img
-                  src="/illustrations/a-right-hero.png"
-                  alt="Maison avec panneaux solaires"
-                  className="w-full h-auto scale-110 transform hover:scale-115 transition-transform duration-300"
-                  loading="lazy"
-                  style={{ filter: 'drop-shadow(0 3px 6px rgba(0,0,0,0.08))' }}
-                />
-              </div>
+              <p className="text-gray-600 text-sm">
+                Plus de <strong>50 000 raccordements</strong> réalisés avec succès
+              </p>
             </div>
           </div>
         </div>
