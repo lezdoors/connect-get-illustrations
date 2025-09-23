@@ -1,87 +1,64 @@
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- LCP Performance Optimization - Priority preloading -->
-    <link rel="preload" as="image" href="/illustrations/a-right-hero.png" fetchpriority="high" />
-    <link rel="preload" as="image" href="/illustrations/a-left-hero.png" fetchpriority="high" />
-    <link rel="preload" as="image" href="/illustrations/Définir-le-type.png" />
-    
-    <!-- SEO Meta Tags -->
-    <title>Raccordement Électrique Enedis – Votre Partenaire Expert | Devis Gratuit</title>
-    <meta name="description" content="Votre partenaire raccordement au réseau d'électricité d'Enedis. Service expert pour particuliers et pros. Devis gratuit, experts agréés ENEDIS, suivi personnalisé A à Z." />
-    <meta name="keywords" content="raccordement électrique, ENEDIS, CONSUEL, électricité, France, devis, installation, photovoltaïque" />
-    <meta name="author" content="Raccordement Connect" />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Raccordement Électrique Enedis – Votre Partenaire Expert | Devis Gratuit" />
-    <meta property="og:description" content="Votre partenaire raccordement au réseau d'électricité d'Enedis. Service expert pour particuliers et pros. Devis gratuit, experts agréés ENEDIS, suivi personnalisé A à Z." />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Raccordement Électrique Enedis",
-      "description": "Votre partenaire raccordement au réseau d'électricité d'Enedis",
-      "url": "https://raccordement-connect.com",
-      "telephone": "+33970709570",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "FR"
-      },
-      "serviceArea": {
-        "@type": "Country",
-        "name": "France"
-      },
-      "priceRange": "€€",
-      "openingHours": "Mo-Fr 09:00-18:00"
-    }
-    </script>
-    
-    <!-- Favicon and PWA Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#2563eb" />
-    <meta name="msapplication-TileColor" content="#2563eb" />
-    
-    <!-- Performance Optimizations -->
-    <link rel="dns-prefetch" href="//www.google-analytics.com" />
-    <link rel="preconnect" href="https://vitals.vercel-analytics.com" />
-    <meta name="performance-budget" content="lcp:2500,fid:100,cls:0.1" />
-    
-    <!-- Critical CSS - System fonts for optimal performance -->
-    <style>
-      /* System fonts for zero performance penalty */
-      body { 
-        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        font-display: swap;
-        margin: 0;
-        padding: 0;
-      }
-      
-      /* Prevent layout shift */
-      * {
-        box-sizing: border-box;
-      }
-      
-      /* Loading state optimization */
-      #root {
-        min-height: 100vh;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Preload hero images (single, with fetchpriority) -->
+<link rel="preload" as="image" href="/illustrations/a-right-hero.png" fetchpriority="high" />
+<link rel="preload" as="image" href="/illustrations/a-left-hero.png" fetchpriority="high" />
+<link rel="preload" as="image" href="/illustrations/definir-le-type.png" />
+
+<!-- SEO Meta Tags -->
+<title>Raccordement Électrique Enedis – Votre Partenaire Expert | Devis Gratuit</title>
+<meta name="description" content="Votre partenaire raccordement au réseau d'électricité d'Enedis. Service expert pour particuliers et pros. Devis gratuit, experts agréés ENEDIS, suivi personnalisé A à Z." />
+<meta name="keywords" content="raccordement électrique, ENEDIS, CONSUEL, électricité, France, devis, installation, photovoltaïque" />
+<meta name="author" content="Raccordement Connect" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Raccordement Électrique Enedis – Votre Partenaire Expert | Devis Gratuit" />
+<meta property="og:description" content="Votre partenaire raccordement au réseau Enedis. Experts agréés, devis gratuit, suivi A à Z." />
+<meta property="og:image" content="/og-image.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://raccordement-connect.com" />
+
+<!-- LocalBusiness Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Raccordement Connect",
+  "image": "https://raccordement-connect.com/logo.png",
+  "telephone": "+33 970709570",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "France"
+  },
+  "priceRange": "€€",
+  "openingHours": ["Mo-Fr 09:00-18:00", "Sa-Su 08:00-20:00"]
+}
+</script>
+
+<!-- Theme -->
+<meta name="theme-color" content="#2563eb" />
+<meta name="msapplication-TileColor" content="#2563eb" />
+
+<!-- Fonts -->
+<!-- Best: self-host via next/font. If not, keep this: -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Performance -->
+<link rel="dns-prefetch" href="//www.google-analytics.com" />
+<link rel="preconnect" href="https://vitals.vercel-analytics.com" />
+
+<!-- Critical CSS -->
+<style>
+  body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  * { box-sizing: border-box; }
+  #root { min-height: 100vh; }
+</style>
