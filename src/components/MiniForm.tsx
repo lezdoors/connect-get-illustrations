@@ -160,6 +160,7 @@ const MiniForm: React.FC = () => {
             onChange={handleInputChange}
             className="w-full px-4 py-4 text-base rounded-xl bg-white appearance-none transition-all duration-200 shadow-sm touch-manipulation"
             style={{ 
+              minHeight: '52px',
               border: '2px solid #e5e7eb',
               color: '#1f2937'
             }}
@@ -171,7 +172,6 @@ const MiniForm: React.FC = () => {
               e.target.style.borderColor = '#e5e7eb'
               e.target.style.boxShadow = 'none'
             }}
-            style={{ minHeight: '52px' }}
           >
             <option value="">Sélectionnez le type</option>
             {TYPE_RACCORDEMENT_OPTIONS.map(option => (
