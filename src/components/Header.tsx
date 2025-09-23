@@ -19,37 +19,19 @@ const Header: React.FC = () => {
           {/* Enhanced Logo */}
           <div className="flex items-center">
             <div className="flex items-center space-x-3 sm:space-x-4">
-              {/* Professional Circular Logo Icon */}
+              {/* Lightning Bolt Logo Icon */}
               <div className="relative w-10 h-10 sm:w-12 sm:h-12">
-                <div className="w-full h-full bg-white rounded-full shadow-lg border-2 border-gray-100 flex items-center justify-center relative overflow-hidden">
-                  {/* Circular electrical connection design */}
-                  <svg className="w-8 h-8 sm:w-10 sm:h-10" viewBox="0 0 100 100" fill="none">
-                    {/* Outer circular border */}
-                    <circle cx="50" cy="50" r="42" stroke="#0ea5e9" strokeWidth="2" fill="none" />
-                    
-                    {/* Electrical plug connections - inspired by your logo */}
-                    <g transform="rotate(0 50 50)">
-                      {/* Top connection */}
-                      <rect x="46" y="15" width="8" height="12" rx="2" fill="#10b981" />
-                      <rect x="48" y="10" width="4" height="8" rx="1" fill="#10b981" />
-                    </g>
-                    
-                    <g transform="rotate(120 50 50)">
-                      {/* Right connection */}
-                      <rect x="46" y="15" width="8" height="12" rx="2" fill="#f59e0b" />
-                      <rect x="48" y="10" width="4" height="8" rx="1" fill="#f59e0b" />
-                    </g>
-                    
-                    <g transform="rotate(240 50 50)">
-                      {/* Left connection */}
-                      <rect x="46" y="15" width="8" height="12" rx="2" fill="#0ea5e9" />
-                      <rect x="48" y="10" width="4" height="8" rx="1" fill="#0ea5e9" />
-                    </g>
-                    
-                    {/* Center hub */}
-                    <circle cx="50" cy="50" r="12" fill="#2563eb" />
-                    <circle cx="50" cy="50" r="8" fill="white" />
-                    <circle cx="50" cy="50" r="4" fill="#2563eb" />
+                <div className="w-full h-full bg-white rounded-full shadow-lg border-3 border-gray-800 flex items-center justify-center relative overflow-hidden">
+                  {/* Lightning bolt design inspired by your image */}
+                  <svg className="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none">
+                    {/* Lightning bolt path */}
+                    <path 
+                      d="M13 2L4.09 12.97C3.74 13.47 4.1 14.18 4.72 14.18H8L11 22L19.91 11.03C20.26 10.53 19.9 9.82 19.28 9.82H16L13 2Z" 
+                      fill="#84cc16" 
+                      stroke="#65a30d" 
+                      strokeWidth="1"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
               </div>
